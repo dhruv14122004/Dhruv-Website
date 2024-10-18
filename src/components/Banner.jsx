@@ -12,7 +12,7 @@ const Banner = () => {
         <p className='text-3xl' >I am a Softwre Engineer......</p>
         <div className="flex gap-2 justify-center ">
             <a href="../assets/Dhruv_resume.pdf" download>
-            <button className="px-[20px] py-[5px] rounded mt-6 border border-[#1484da] transition-all duration-100 ease-in-out hover:bg-[#1484da]" >Resume Download</button>
+            <button className="px-[20px] py-[5px] rounded mt-6 border border-red-500 transition-all duration-100 ease-in-out hover:bg-red-500" >Resume Download</button>
             </a>
         </div>    
         <div className='text-white flex lg:flex-row flex-col lg:justify-around items-center custom_yellow'>
