@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #000;
+    overflow-x: hidden;
+    color: rgb(255, 176, 4);
+    font-family: Roboto MOno;
+}
+
+.custom_yellow{
+    color: rgb(255, 176, 4);
+}
+
