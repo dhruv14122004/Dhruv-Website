@@ -3,6 +3,7 @@ import {FaFacebookF, FaLinkedinIn} from 'react-icons/fa6'
 import { FiInstagram } from 'react-icons/fi';
 import {LuMouse} from 'react-icons/lu'
 import heroimg from "../assets/hero-img.png"
+import resume from "../assets/Dhruv_resume.pdf"
 
 const Banner = () => {
     return (
@@ -11,7 +12,7 @@ const Banner = () => {
         <h2 className="text-7xl my-2 font-bold ">Dhruv Sharma</h2>
         <p className='text-3xl' >I am a Softwre Engineer......</p>
         <div className="flex gap-2 justify-center ">
-            <a href="../assets/Dhruv_resume.pdf" download>
+            <a href={resume} download>
             <button className="px-[20px] py-[5px] rounded mt-6 border border-red-500 transition-all duration-100 ease-in-out hover:bg-red-500" >Resume Download</button>
             </a>
         </div>    
