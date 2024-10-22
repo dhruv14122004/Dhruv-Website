@@ -13,7 +13,6 @@ function App() {
 
   return (
     <div >
-      <VideoBackground/>
       <div>
       <Header/>
       <Banner/>
