@@ -3,15 +3,9 @@ import { FiMenu, FiX } from 'react-icons/fi'
 
 const GameHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    // Removed scroll-based logic to keep the header translucent throughout
   }, [])
 
   const navItems = [
@@ -30,7 +24,7 @@ const GameHeader = () => {
   }
 
   return (
-    <nav className={`game-nav ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className={`game-nav`}>
       <div className="nav-container">
         <ul className="nav-menu">
           {navItems.map((item, index) => (
