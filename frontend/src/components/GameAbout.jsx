@@ -1,11 +1,11 @@
-import { SiPython, SiMongodb, SiPostgresql, SiGit, SiFlutter, SiGo, SiDocker, SiAmazonaws } from 'react-icons/si'
+import { SiPython, SiMongodb, SiPostgresql, SiGit, SiFlutter, SiGo, SiDocker,} from 'react-icons/si'
 
 const GameAbout = () => {
   const skills = [
     { name: 'Flutter', icon: SiFlutter, level: 'Advanced', color: '#02569B', description: 'Cross-platform app development' },
     { name: 'Go', icon: SiGo, level: 'Intermediate', color: '#00ADD8', description: 'Concurrent programming & backend' },
     { name: 'Docker', icon: SiDocker, level: 'Intermediate', color: '#2496ED', description: 'Containerization & deployment' },
-    { name: 'AWS', icon: SiAmazonaws, level: 'Intermediate', color: '#FF9900', description: 'Cloud services & infrastructure' },
+    // { name: 'AWS', icon: SiAmazonaws, level: 'Intermediate', color: '#FF9900', description: 'Cloud services & infrastructure' },
     { name: 'Python', icon: SiPython, level: 'Advanced', color: '#3776AB', description: 'Backend & data processing' },
     { name: 'MongoDB', icon: SiMongodb, level: 'Advanced', color: '#47A248', description: 'NoSQL database design' },
     { name: 'PostgreSQL', icon: SiPostgresql, level: 'Intermediate', color: '#336791', description: 'Relational databases' },
