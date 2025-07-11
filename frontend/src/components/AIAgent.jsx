@@ -5,12 +5,11 @@ import { generateGeminiResponse, isGeminiConfigured } from '../utils/geminiAI'
 
 const AIAgent = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isGeminiActive, setIsGeminiActive] = useState(false)
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: isGeminiConfigured() 
-        ? "Hi! I'm Dhruv's AI assistant powered by Gemini. How can I help you today?" 
-        : "Hi! I'm Dhruv's AI assistant. How can I help you today?",
+      text: "Hi! I'm Dhruv's AI assistant. How can I help you today?",
       isBot: true,
       timestamp: new Date()
     }
@@ -18,6 +17,26 @@ const AIAgent = () => {
   const [inputMessage, setInputMessage] = useState('')
   const [isTyping, setIsTyping] = useState(false)
   const messagesEndRef = useRef(null)
+
+  // Check if Gemini is configured on component mount
+  useEffect(() => {
+    const checkGeminiConfig = async () => {
+      const configured = await isGeminiConfigured();
+      setIsGeminiActive(configured);
+      
+      // Update initial message if Gemini is active
+      if (configured) {
+        setMessages([{
+          id: 1,
+          text: "Hi! I'm Dhruv's AI assistant powered by Gemini. How can I help you today?",
+          isBot: true,
+          timestamp: new Date()
+        }]);
+      }
+    };
+    
+    checkGeminiConfig();
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -177,7 +196,7 @@ const AIAgent = () => {
             />
             <div>
               <div style={{ fontWeight: 'bold', fontSize: '1rem' }}>
-                Cat Assistant {isGeminiConfigured() && <span style={{ fontSize: '0.7rem', opacity: 0.8 }}>⚡ Powered by Gemini</span>}
+                Cat Assistant {isGeminiActive && <span style={{ fontSize: '0.7rem', opacity: 0.8 }}>⚡ Powered by Gemini</span>}
               </div>
               <div style={{ fontSize: '0.8rem', opacity: 0.9 }}>Ask me about Dhruv</div>
             </div>

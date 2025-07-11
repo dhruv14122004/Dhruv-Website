@@ -2,7 +2,7 @@
 
 ## 🚀 Setup Complete!
 
-Your AI agent is now integrated with Google's Gemini AI! Here's what you need to do:
+Your AI agent is now integrated with Google's Gemini AI through a secure backend API! Here's what you need to do:
 
 ## 1. Get Your Gemini API Key
 
@@ -11,50 +11,63 @@ Your AI agent is now integrated with Google's Gemini AI! Here's what you need to
 3. Click "Create API Key"
 4. Copy your API key
 
-## 2. Configure Your Environment
+## 2. Configure Your Backend Environment
 
-1. Open `/frontend/.env` file
-2. Replace `your_gemini_api_key_here` with your actual API key:
+1. Open `/backend/.env` file
+2. Update the `GEMINI_API_KEY` with your actual API key:
    ```
-   VITE_GEMINI_API_KEY=AIzaSyC-your-actual-api-key-here
+   GEMINI_API_KEY=AIzaSyC-your-actual-api-key-here
    ```
 3. Save the file
 
-## 3. Restart Your Development Server
+## 3. Start Your Servers
 
+**Backend (Terminal 1):**
 ```bash
+cd backend
+npm start
+```
+
+**Frontend (Terminal 2):**
+```bash
+cd frontend
 npm run dev
 ```
 
 ## 🎯 Features Added
 
-- ✅ **Real AI Responses**: Your AI agent now uses Google's Gemini Pro model
-- ✅ **Fallback System**: If API is unavailable, it uses smart fallback responses
+- ✅ **Secure Backend Integration**: API key is safely stored on the server
+- ✅ **Real AI Responses**: Your AI agent uses Google's Gemini model through backend API
+- ✅ **Fallback System**: If backend/API is unavailable, uses smart fallback responses
 - ✅ **Context Awareness**: AI knows about Dhruv's skills, projects, and background
 - ✅ **Conversation Memory**: AI remembers recent conversation context
 - ✅ **Professional Tone**: AI responds professionally representing Dhruv
 - ✅ **Error Handling**: Graceful error handling with fallback responses
 - ✅ **Visual Indicator**: Shows "⚡ Powered by Gemini" when API is configured
+- ✅ **Security**: API key never exposed to frontend/browser
 
 ## 🔒 Security
 
-- Your API key is stored in `.env` which is now added to `.gitignore`
+- Your API key is stored in `/backend/.env` which is secure and not exposed to browsers
 - Never commit your API key to version control
-- The key is only accessible in the frontend build
+- The frontend only communicates with your backend, not directly with Google's API
+- Backend validates all requests and handles API communication securely
 
 ## 🛠️ How It Works
 
-1. **User sends message** → AI agent receives it
-2. **Context building** → Adds Dhruv's information and conversation history
-3. **Gemini API call** → Sends request to Google's Gemini Pro model
-4. **Response processing** → Cleans and formats the AI response
-5. **Fallback handling** → Uses smart fallbacks if API fails
+1. **User sends message** → Frontend sends to your backend API
+2. **Backend processes** → Adds Dhruv's information and conversation history
+3. **Gemini API call** → Backend calls Google's Gemini model securely
+4. **Response processing** → Backend cleans and formats the AI response
+5. **Frontend receives** → Displays the response to the user
+6. **Fallback handling** → Uses smart fallbacks if backend/API fails
 
 ## 💡 Tips
 
+- Keep both backend and frontend running for full AI functionality
 - The AI is trained to represent Dhruv professionally
-- It will guide visitors to relevant portfolio sections
-- It encourages potential employers to reach out
+- Backend handles all API complexity and security
+- Frontend gracefully handles backend unavailability
 - Responses are limited to ~150 words for better UX
 - The AI maintains conversation context for natural flow
 
