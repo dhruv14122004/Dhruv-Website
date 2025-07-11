@@ -7,11 +7,12 @@ const GameHero = () => {
   const [isTyping, setIsTyping] = useState(true)
 
   const subtitles = [
-    "Software Developer & Problem Solver",
-    "Full Stack Engineer",
-    "Creative Developer",
-    "Technology Enthusiast",
-    "Frontend & Backend Specialist"
+    "Mobile App Developer",
+    "Flutter & GoLang Enthusiast",
+    "Knowledge of AI/ML",
+    "Cross-Platform Specialist",
+    "UI/UX Focused Developer",
+    "Technology Innovator"
   ]
 
   useEffect(() => {
@@ -95,7 +96,7 @@ const GameHero = () => {
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
               animation: 'slideUp 1s ease-out'
             }}>
-              Hey, I'm{' '}
+              Hello, I'm{' '}
               <span style={{
                 background: 'linear-gradient(45deg, #FFD700, #FFA500)',
                 WebkitBackgroundClip: 'text',
@@ -134,10 +135,8 @@ const GameHero = () => {
               lineHeight: '1.6',
               animation: 'fadeIn 1s ease-out 1s both'
             }}>
-              <em>Welcome to my portfolio. Explore my projects and professional journey.</em>
-              <br />
-              <span style={{ fontSize: '0.9em', opacity: '0.8' }}>
-                Passionate about creating innovative digital solutions
+              <span style={{ fontSize: '1.1em', opacity: '0.8' }}>
+                I’m a Flutter developer who loves coming up with creative ideas and building mobile apps that actually help people in their daily lives. I enjoy making apps that are simple, easy to use, and solve real problems—whether it’s a tool to boost productivity or something that makes everyday tasks easier. I’m always excited to take an idea and turn it into a working app using Flutter. When I’m not coding, you’ll probably find me jotting down random app ideas, enjoying a cup of coffee, or watching tech videos on YouTube—because I’m always looking to learn something new and improve my skills.
               </span>
             </p>
 
