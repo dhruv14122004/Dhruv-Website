@@ -7,6 +7,8 @@ import GameProjects from './components/GameProjects'
 import GameContact from './components/GameContact'
 import GameFooter from './components/GameFooter'
 import AnimatedBackground from './components/AnimatedBackground'
+import FloatingSocialBubble from './components/FloatingSocialBubble'
+import AIAgent from './components/AIAgent'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -48,6 +50,8 @@ function App() {
   return (
     <div className="game-app">
       <AnimatedBackground />
+      <FloatingSocialBubble />
+      <AIAgent />
       <GameHeader />
       <main>
         <GameHero />

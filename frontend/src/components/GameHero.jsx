@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import heroImage from '../assets/me.jpeg'
+import resumePDF from '../assets/Dhruv_Sharma_Resume.pdf'
 
 const GameHero = () => {
   const [displayText, setDisplayText] = useState('')
@@ -179,32 +180,37 @@ const GameHero = () => {
               </a>
               
               <a 
-                href="#projects" 
+                href={resumePDF}
+                download="Dhruv_Sharma_Resume.pdf"
                 className="game-btn game-btn-secondary"
                 style={{
                   fontSize: '1rem',
                   padding: '0.8rem 2rem',
-                  background: 'transparent',
-                  color: 'var(--color-white)',
-                  border: '2px solid rgba(255, 255, 255, 0.5)',
+                  background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                  color: '#000',
+                  border: '2px solid #FFD700',
                   borderRadius: '50px',
                   textDecoration: 'none',
                   fontFamily: 'Cabin',
                   fontWeight: '600',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.1)'
-                  e.target.style.transform = 'translateY(-2px)'
-                  e.target.style.borderColor = 'var(--color-white)'
+                  e.target.style.background = 'linear-gradient(45deg, #FFA500, #FF8C00)'
+                  e.target.style.transform = 'translateY(-3px) scale(1.05)'
+                  e.target.style.boxShadow = '0 8px 25px rgba(255, 215, 0, 0.4)'
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'transparent'
-                  e.target.style.transform = 'translateY(0)'
-                  e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)'
+                  e.target.style.background = 'linear-gradient(45deg, #FFD700, #FFA500)'
+                  e.target.style.transform = 'translateY(0) scale(1)'
+                  e.target.style.boxShadow = 'none'
                 }}
               >
-                View Projects
+                <span>📄</span>
+                Download Resume
               </a>
             </div>
           </div>

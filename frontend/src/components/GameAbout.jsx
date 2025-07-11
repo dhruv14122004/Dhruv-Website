@@ -1,5 +1,5 @@
 import { FiCode, FiDatabase, FiGlobe, FiSmartphone, FiServer, FiTool } from 'react-icons/fi'
-import { SiReact, SiJavascript, SiPython, SiNodedotjs, SiMongodb, SiPostgresql, SiTailwindcss, SiGit } from 'react-icons/si'
+import { SiReact, SiJavascript, SiPython, SiNodedotjs, SiMongodb, SiPostgresql, SiTailwindcss, SiGit , SiFlutter, SiGo, SiGithub, SiFigma,} from 'react-icons/si'
 
 const GameAbout = () => {
   const skills = [
