@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import GameLoadingScreen from './components/GameLoadingScreen'
 import GameHeader from './components/GameHeader'
 import GameHero from './components/GameHero'
-import GameAbout from './components/GameAbout'
+import GameAbout from './components/GameAbout' // Re-added to display skills
 import GameProjects from './components/GameProjects'
 import GameContact from './components/GameContact'
 import GameFooter from './components/GameFooter'
@@ -55,7 +55,7 @@ function App() {
       <GameHeader />
       <main>
         <GameHero />
-        <GameAbout />
+        <GameAbout /> {/* Re-added to display skills */}
         <GameProjects />
         <GameContact />
       </main>
