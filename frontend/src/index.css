@@ -4,24 +4,24 @@
 
 /* CSS Variables for New Theme */
 :root {
-  --color-primary: #024089; /* Deep Blue */
-  --color-secondary: #FDA300; /* Bright Orange */
+  --color-primary: #075985;
+  --color-secondary: #c4b5fd;
   --color-background: #1a1a1a; /* Dark Background */
   --color-text-heading: #FFFFFF; /* White */
   --color-text-body: #e0e0e0; /* Light Gray */
   --color-text: #FFFFFF; /* Alias for heading text */
-  --color-accent: #FDA300; /* Bright Orange Accent */
+  --color-accent: #c4b5fd;
   --color-white: #FFFFFF;
   --color-light: #333333; /* Darker Light for dark theme */
-  --color-shadow: rgba(253, 163, 0, 0.1); /* Orange shadow */
-  --color-shadow-hover: rgba(253, 163, 0, 0.2); /* Brighter orange shadow */
-  --color-border: rgba(253, 163, 0, 0.2); /* Orange border */
+  --color-shadow: rgba(196, 181, 253, 0.1);
+  --color-shadow-hover: rgba(196, 181, 253, 0.2);
+  --color-border: rgba(196, 181, 253, 0.2);
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #024089 0%, #00224D 100%); /* Dark blue gradient */
-  --gradient-soft: linear-gradient(135deg, #FDA300 0%, #FFC107 100%); /* Orange gradient */
-  --gradient-hero: linear-gradient(135deg, #024089 0%, #003366 50%, #00224D 100%);
-  --gradient-animated: linear-gradient(270deg, #024089, #003366, #FDA300, #FFC107);
+  --gradient-primary: linear-gradient(135deg, #075985 0%, #032d4d 100%);
+  --gradient-soft: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
+  --gradient-hero: linear-gradient(135deg, #075985 0%, #043a6b 50%, #032d4d 100%);
+  --gradient-animated: linear-gradient(270deg, #075985, #043a6b, #c4b5fd, #a78bfa);
 }
 
 /* Global Styles */
