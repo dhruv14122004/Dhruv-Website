@@ -1,28 +1,16 @@
-import { useState, useEffect } from 'react'
-import GameLoadingScreen from './components/GameLoadingScreen'
-import GameHeader from './components/GameHeader'
-import GameHero from './components/GameHero'
-import GameAbout from './components/GameAbout' // Re-added to display skills
-import GameProjects from './components/GameProjects'
-import GameContact from './components/GameContact'
-import GameFooter from './components/GameFooter'
-import AnimatedBackground from './components/AnimatedBackground'
-import FloatingSocialBubble from './components/FloatingSocialBubble'
-import AIAgent from './components/AIAgent'
+import { useEffect } from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import About from './components/About'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
-
   useEffect(() => {
-    // Loading screen timer
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
+    // Smooth scroll behavior for anchor links
+    document.documentElement.style.scrollBehavior = 'smooth'
+    
     // Scroll animations
     const observerOptions = {
       threshold: 0.1,
@@ -32,7 +20,7 @@ function App() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in')
+          entry.target.classList.add('animate-fade-in')
         }
       })
     }, observerOptions)
@@ -41,25 +29,18 @@ function App() {
     elements.forEach(el => observer.observe(el))
 
     return () => observer.disconnect()
-  }, [isLoading])
-
-  if (isLoading) {
-    return <GameLoadingScreen />
-  }
+  }, [])
 
   return (
-    <div className="game-app">
-      <AnimatedBackground />
-      <FloatingSocialBubble />
-      <AIAgent />
-      <GameHeader />
+    <div className="min-h-screen bg-gray-900">
+      <Header />
       <main>
-        <GameHero />
-        <GameAbout /> {/* Re-added to display skills */}
-        <GameProjects />
-        <GameContact />
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
       </main>
-      <GameFooter />
+      <Footer />
     </div>
   )
 }
