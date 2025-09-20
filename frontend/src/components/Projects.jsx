@@ -21,7 +21,7 @@ const Projects = () => {
       image: cvipImage,
       technologies: ['Python', 'Machine Learning', 'Vision Transformers', 'ResNet'],
       category: 'ai',
-      github: 'https://github.com/dhruv14122004',
+      github: 'https://github.com/devrishivermaa/capsule-commandos',
       demo: '#',
       featured: true
     },
@@ -52,7 +52,7 @@ const Projects = () => {
       title: 'Accident Detection System',
       description: 'Real-time accident detection system using Jetson Nano and YOLO-based AI model to detect accidents and trigger indicator lights for quick alerts.',
       image: accidentImage,
-      technologies: ['Python', 'Jetson Nano', 'YOLO', 'SQLite'],
+      technologies: ['Python', 'Jetson Nano', 'YOLO', 'SQLite', 'Flask', 'Django'],
       category: 'ai',
       github: 'https://github.com/dhruv14122004',
       demo: '#',
@@ -82,12 +82,12 @@ const Projects = () => {
     },
     {
       id: 7,
-      title: 'AutoCAD Data Extraction Tool',
-      description: 'Java Swing application with Lucene-based search for extracting text and metadata from AutoCAD files using OCR tools.',
+      title: 'Shoe App',
+      description: 'Created a ecommerce shoe app using Flutter ',
       image: dihImage,
-      technologies: ['Java', 'Java Swing', 'Apache Lucene', 'OCR Tools'],
-      category: 'data',
-      github: 'https://github.com/dhruv14122004',
+      technologies: ['Dart', 'Flutter', 'Firebase'],
+      category: 'mobile',
+      github: 'https://github.com/dhruv14122004/shoeApp',
       demo: '#',
       featured: false
     }
