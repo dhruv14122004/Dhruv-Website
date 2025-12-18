@@ -115,8 +115,8 @@ const BottomNavbar = ({ darkMode, setDarkMode }) => {
 
   const socialLinks = [
     { icon: <IconBrandGithub className="h-full w-full" />, title: 'GitHub', href: 'https://github.com/dhruv14122004' },
-    { icon: <IconBrandX className="h-full w-full" />, title: 'X', href: 'https://x.com/dhruv14122004' },
-    { icon: <SiPeerlist className="h-full w-full" />, title: 'Peerlist', href: 'https://peerlist.io/dhruv14122004' },
+    { icon: <IconBrandX className="h-full w-full" />, title: 'X', href: 'https://x.com/dhruvshxrmaa' },
+    { icon: <SiPeerlist className="h-full w-full" />, title: 'Peerlist', href: 'https://peerlist.io/dhruvsharma' },
     { icon: <IconBrandLinkedin className="h-full w-full" />, title: 'LinkedIn', href: 'https://www.linkedin.com/in/dhruvsharmaa14' },
   ];
 
