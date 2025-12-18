@@ -1,46 +1,32 @@
-import { useEffect } from 'react'
-import Header from './components/Header'
+import { useState, useEffect } from 'react'
 import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
+import Skills from './components/Skills'
+import TreeTimeline from './components/TreeTimeline'
+import BentoProjects from './components/BentoProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import BottomNavbar from './components/BottomNavbar'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true)
+
   useEffect(() => {
-    // Smooth scroll behavior for anchor links
-    document.documentElement.style.scrollBehavior = 'smooth'
-    
-    // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    if (darkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fade-in')
-        }
-      })
-    }, observerOptions)
-
-    const elements = document.querySelectorAll('.animate-on-scroll')
-    elements.forEach(el => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  }, [darkMode])
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 font-main pb-28 md:pb-32">
+      <Hero />
+      <Skills />
+      <TreeTimeline />
+      <BentoProjects />
+      <Contact />
       <Footer />
+      <BottomNavbar darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   )
 }

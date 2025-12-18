@@ -1,113 +1,81 @@
-import { useState, useEffect } from 'react'
-import heroImage from '../assets/me.jpeg'
-import resumePDF from '../assets/Dhruv_Sharma_Resume.pdf'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FiEye } from 'react-icons/fi';
+import heroImage from '../assets/me.jpeg';
+import resumePDF from '../assets/Dhruv_Sharma_Resume.pdf';
+import ResumeModal from './ResumeModal';
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState('')
-  const [currentSubtitle, setCurrentSubtitle] = useState(0)
-
-  const subtitles = [
-    "Mobile App Developer",
-    "Flutter & Dart Specialist",
-    "Game Developer",
-    "AI/ML Enthusiast",
-    "UI/UX Designer"
-  ]
-
-  useEffect(() => {
-    const currentText = subtitles[currentSubtitle]
-    let index = 0
-    
-    const typeInterval = setInterval(() => {
-      if (index < currentText.length) {
-        setDisplayText(currentText.slice(0, index + 1))
-        index++
-      } else {
-        clearInterval(typeInterval)
-        
-        setTimeout(() => {
-          const deleteInterval = setInterval(() => {
-            if (index > 0) {
-              setDisplayText(currentText.slice(0, index - 1))
-              index--
-            } else {
-              clearInterval(deleteInterval)
-              setCurrentSubtitle((prev) => (prev + 1) % subtitles.length)
-            }
-          }, 50)
-        }, 2000)
-      }
-    }, 100)
-
-    return () => clearInterval(typeInterval)
-  }, [currentSubtitle])
-
-  const handleDownloadResume = () => {
-    const link = document.createElement('a')
-    link.href = resumePDF
-    link.download = 'Dhruv_Sharma_Resume.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+  const [showResume, setShowResume] = useState(false);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-left">
-            <div className="mb-6">
-              <p className="text-lg text-gray-400 mb-2">Hello, I'm</p>
-              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-4">
-                Dhruv Sharma
-              </h1>
-              <div className="h-8 mb-6">
-                <p className="text-xl lg:text-2xl text-blue-400 font-medium">
-                  {displayText}
-                  <span className="animate-pulse">|</span>
-                </p>
-              </div>
-            </div>
-            
-            <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              Mobile app and game developer specializing in Flutter development, 
-              AI/ML applications, and creating immersive game experiences with modern technologies.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a 
-                href="#contact" 
-                className="inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
-              >
-                Get In Touch
-              </a>
-              <button 
-                onClick={handleDownloadResume}
-                className="inline-flex items-center justify-center px-8 py-3 border-2 border-blue-400 text-blue-400 font-medium rounded-lg hover:bg-blue-400 hover:text-gray-900 transition-colors duration-200"
-              >
-                Download Resume
-              </button>
-            </div>
-          </div>
-          
-          {/* Image */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-xl">
-                <img 
-                  src={heroImage} 
-                  alt="Dhruv Sharma" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full -z-10 opacity-20 blur-lg"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+    <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black transition-colors duration-500">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-col items-center space-y-8 max-w-4xl"
+      >
+        {/* Image */}
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative"
+        >
+          <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
+          <img
+            src={heroImage}
+            alt="Dhruv Sharma"
+            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl"
+          />
+        </motion.div>
 
-export default Hero
+        <div className="space-y-6">
+          <h2 className="text-sm md:text-base font-medium tracking-wider text-blue-600 dark:text-blue-400 uppercase">
+            Portfolio
+          </h2>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Dhruv Sharma
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            Crafting digital experiences with code and creativity.
+            <br />
+            <span className="text-gray-400 dark:text-gray-500">Full Stack Developer & UI/UX Enthusiast.</span>
+          </p>
+        </div>
+        
+        <motion.div 
+          className="pt-4 flex flex-col sm:flex-row gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <a 
+            href="#projects"
+            className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-black/10"
+          >
+            View My Work
+          </a>
+          
+          <button 
+            onClick={() => setShowResume(true)}
+            className="px-8 py-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-black/5 flex items-center justify-center gap-2"
+          >
+            <FiEye /> View Resume
+          </button>
+        </motion.div>
+      </motion.div>
+
+      {/* Premium Resume Modal */}
+      <ResumeModal
+        isOpen={showResume}
+        onClose={() => setShowResume(false)}
+        file={resumePDF}
+        filename="Dhruv Sharma - Resume"
+      />
+    </section>
+  );
+};
+
+export default Hero;
