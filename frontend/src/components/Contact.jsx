@@ -64,7 +64,7 @@ const Contact = () => {
     {
       icon: FiLinkedin,
       name: 'LinkedIn',
-      href: 'https://linkedin.com/in/dhruv-sharma',
+      href: 'https://www.linkedin.com/in/dhruvsharmaa14/',
       color: 'hover:text-blue-600'
     },
     {
