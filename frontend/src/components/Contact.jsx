@@ -25,8 +25,13 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
+    // Add 60s timeout to handle Render cold starts
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 60000)
+
     try {
-      const response = await fetch('http://localhost:5000/api/send-email', {
+      const response = await fetch('https://dhruv-website.onrender.com/api/send-email', {
+        signal: controller.signal,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,10 +43,13 @@ const Contact = () => {
         }),
       })
 
+      clearTimeout(timeoutId)
+
       if (response.ok) {
         setSubmitStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
       } else {
+        console.error('Server responded with error')
         setSubmitStatus('error')
       }
     } catch (error) {
@@ -235,7 +243,9 @@ const Contact = () => {
                 <p className="text-green-500 text-center font-medium font-mono">Message sent successfully!</p>
               )}
               {submitStatus === 'error' && (
-                <p className="text-red-500 text-center font-medium font-mono">Message failed to send. Retry.</p>
+                <p className="text-red-500 text-center font-medium font-mono">
+                  {errorMessage || 'Message failed to send. Retry.'}
+                </p>
               )}
             </form>
           </motion.div>
