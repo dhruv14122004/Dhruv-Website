@@ -25,7 +25,6 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    // Add 60s timeout to handle Render cold starts
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), 60000)
 
