@@ -33,7 +33,7 @@ const ResumeViewer = ({ file, zoom }) => {
   const pageWidth = Math.floor((containerWidth - 80) * zoom);
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="flex-1 overflow-y-auto overflow-x-hidden resume-scrollbar bg-transparent"
     >
@@ -44,8 +44,8 @@ const ResumeViewer = ({ file, zoom }) => {
           loading={
             <div className="flex items-center justify-center py-20">
               <div className="flex flex-col items-center gap-4">
-                <div className="w-10 h-10 border-2 border-purple-500/30 border-t-purple-500 rounded-full animate-spin" />
-                <span className="text-sm text-gray-400">Loading PDF...</span>
+                <div className="w-10 h-10 border-2 border-retro-border border-t-retro-accent rounded-full animate-spin" />
+                <span className="text-sm text-retro-text-secondary font-mono">LOADING_DATA...</span>
               </div>
             </div>
           }
@@ -53,19 +53,19 @@ const ResumeViewer = ({ file, zoom }) => {
             <div className="flex items-center justify-center py-20">
               <div className="text-center">
                 <div className="text-4xl mb-4">📄</div>
-                <p className="text-red-400">Failed to load PDF</p>
-                <p className="text-gray-500 text-sm mt-2">Please try again later</p>
+                <p className="text-red-500 font-mono">ERROR: LOAD_FAILED</p>
+                <p className="text-retro-text-secondary text-sm mt-2 font-mono">RETRY_CONNECTION</p>
               </div>
             </div>
           }
         >
           {numPages && Array.from({ length: numPages }).map((_, index) => (
-            <div 
-              key={`page_${index + 1}`} 
+            <div
+              key={`page_${index + 1}`}
               className="mb-6 last:mb-0"
             >
               {/* Page container - clean and simple */}
-              <div className="rounded-lg overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800">
+              <div className="overflow-hidden shadow-retro border-2 border-retro-border">
                 <Page
                   pageNumber={index + 1}
                   width={pageWidth}
@@ -78,8 +78,8 @@ const ResumeViewer = ({ file, zoom }) => {
               {/* Page number */}
               {numPages > 1 && (
                 <div className="mt-3 text-center">
-                  <span className="text-xs text-gray-500 font-medium px-2.5 py-1 bg-gray-100 dark:bg-white/5 rounded-full">
-                    {index + 1} / {numPages}
+                  <span className="text-xs text-retro-text font-medium px-2.5 py-1 bg-retro-surface border border-retro-border font-mono">
+                    PAGE {index + 1} / {numPages}
                   </span>
                 </div>
               )}

@@ -50,18 +50,17 @@ const ResumeModal = ({ isOpen, onClose, file, filename = 'Resume' }) => {
             initial={{ scale: 0.95, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
-            transition={{ 
-              type: 'spring', 
-              damping: 25, 
+            transition={{
+              type: 'spring',
+              damping: 25,
               stiffness: 300,
-              duration: 0.3 
+              duration: 0.3
             }}
             className="relative w-full max-w-5xl h-[90vh] max-h-[900px]
               flex flex-col overflow-hidden
-              bg-white dark:bg-gray-900
-              rounded-2xl
-              shadow-2xl
-              border border-gray-200/60 dark:border-gray-800"
+              bg-retro-surface
+              border-2 border-retro-border
+              shadow-retro"
           >
             {/* Toolbar */}
             <ResumeToolbar

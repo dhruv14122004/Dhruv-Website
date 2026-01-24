@@ -7,19 +7,33 @@ import Trunk from './Trunk';
 const experiences = [
   {
     id: 1,
-    role: 'Flutter Developer',
-    company: 'Dynamicore Strategies',
-    type: 'internship',
-    duration: 'May 2025 – August 2025',
-    description: 'Created a responsive Flutter fintech app with portfolio tracking, mutual fund analytics, and AI-powered investment dashboards.',
+    role: 'Backend Developer',
+    company: 'Aerilon Tech',
+    type: 'Internship',
+    duration: 'Jan 2026 – Present',
+    description:
+  'Building scalable and production-ready backend systems for multiple client projects using Node.js and Express. Developing secure REST APIs, implementing authentication and authorization, optimizing performance, and deploying containerized services on AWS using Docker while following Git-based collaboration workflows.',
+
+    tech: ['JavaScript', 'Node.js', 'Express.js', 'AWS', 'Docker', 'Git'],
   },
+
   {
     id: 2,
+    role: 'Flutter Mobile App Developer Intern',
+    company: 'Dynamicore Strategies',
+    type: 'internship',
+    duration: 'May 2025 – August 2026',
+    description: 'Built a Flutter Based Fintech App with portfolio tracking and dynamic responsive layouts. Developed portfolio tracking, mutual fund analysis, investment dashboard, AI portfolio analyzer, and real-time financial data visualization with custom responsive widget library.',
+    tech: ['Flutter', 'Dart', 'MediaQuery', 'Figma'],
+  },
+  {
+    id: 3,
     role: 'Software Developer Intern',
     company: 'Aunwesha Knowledge Technologies',
     type: 'internship',
-    duration: 'May 2024 – July 2025',
-    description: 'Developed a Java Swing tool to OCR AutoCAD (.dwg/.pdf) files and enable Lucene search with Excel export for seamless data extraction and analysis.',
+    duration: 'May 2024 – June 2024',
+    description: 'Built an intelligent document search system for AutoCAD and PDF files using OCR and Apache Lucene indexing. Developed a Java-based application with a chatbot interface that enables conversational search across CAD drawings, along with file preview and Excel export for efficient analysis.',
+    tech: ['Java', 'Java Swing', 'Apache Lucene', 'Apache POI', 'OCR Tools', 'GroupDocs.Viewer'],
   },
 ];
 
@@ -41,9 +55,8 @@ const TreeTimeline = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-16">
-            Experience
-          </h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title justify-center">Experience</h2>
+
         </motion.div>
 
         {/* Timeline Tree (desktop/tablet) */}
@@ -87,11 +100,11 @@ const TreeTimeline = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     className={`
                       absolute left-1/2 -translate-x-1/2
-                      w-4 h-4 rounded-full
-                      border-4 border-white dark:border-gray-950
-                      ${isActive 
-                        ? 'bg-blue-500 dark:bg-blue-400' 
-                        : 'bg-gray-300 dark:bg-gray-600'
+                      w-4 h-4
+                      border-2 border-retro-bg
+                      ${isActive
+                        ? 'bg-retro-accent'
+                        : 'bg-retro-text'
                       }
                       transition-colors duration-300
                       z-20
@@ -123,7 +136,7 @@ const TreeTimeline = () => {
 
         {/* Mobile: Simplified vertical list */}
         <div className="md:hidden mt-8">
-          <div className="relative pl-6 border-l-2 border-gray-200 dark:border-gray-700 space-y-8">
+          <div className="relative pl-6 border-l-2 border-retro-border space-y-8">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
@@ -134,25 +147,36 @@ const TreeTimeline = () => {
                 className="relative"
               >
                 {/* Dot */}
-                <div className="absolute -left-[25px] top-2 w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-white dark:border-gray-900" />
-                
+                <div className="absolute -left-[25px] top-2 w-3 h-3 bg-retro-text border-2 border-retro-bg" />
+
                 {/* Card */}
-                <div className="p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm">
+                <div className="p-4 bg-retro-surface border-2 border-retro-border shadow-retro">
                   <span className={`
-                    inline-block text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-full mb-2
-                    ${exp.type === 'work' 
-                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400' 
+                    inline-block text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 border border-retro-border mb-2 font-mono text-retro-bg
+                    ${exp.type === 'work'
+                      ? 'bg-retro-accent'
                       : exp.type === 'internship'
-                      ? 'bg-green-50 text-green-600 dark:bg-green-900/30 dark:text-green-400'
-                      : 'bg-purple-50 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400'
+                        ? 'bg-purple-600'
+                        : 'bg-green-600'
                     }
                   `}>
                     {exp.type}
                   </span>
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white">{exp.role}</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{exp.company}</p>
-                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">{exp.duration}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 leading-relaxed">{exp.description}</p>
+                  <h3 className="text-sm font-bold text-retro-text font-heading uppercase">{exp.role}</h3>
+                  <p className="text-xs text-retro-text font-mono mt-1">{exp.company}</p>
+                  <p className="text-xs text-retro-text-secondary mt-1 font-mono">{exp.duration}</p>
+                  <p className="text-xs text-retro-text-secondary mt-2 leading-relaxed font-mono">{exp.description}</p>
+
+                  {/* Technologies */}
+                  {exp.tech && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {exp.tech.map((tech, i) => (
+                        <span key={i} className="text-[10px] font-mono text-retro-accent border border-retro-border px-1.5 py-0.5">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

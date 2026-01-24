@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiEye } from 'react-icons/fi';
+import { SiSupabase, SiPython, SiMongodb, SiGit, SiFlutter, SiFirebase, SiUnrealengine, SiFigma, SiC, SiCplusplus, SiJavascript, SiNodedotjs, SiDocker, SiExpress, SiLinux, SiReact, SiBlender } from 'react-icons/si';
 import heroImage from '../assets/me.jpeg';
 import resumePDF from '../assets/Dhruv_Sharma_Resume.pdf';
 import ResumeModal from './ResumeModal';
@@ -9,65 +9,102 @@ const Hero = () => {
   const [showResume, setShowResume] = useState(false);
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-black transition-colors duration-500">
+    <section id="hero" className="hero relative">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col items-center space-y-8 max-w-4xl"
+        className="hero-content"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        {/* Image */}
-        <motion.div
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative"
-        >
-          <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
-          <img
-            src={heroImage}
-            alt="Dhruv Sharma"
-            className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl"
-          />
-        </motion.div>
+        <p style={{ color: "var(--accent-retro)", marginBottom: "10px" }} className="font-mono">
+          {"{ HOT RELOADING... }"}
+        </p>
+        <h1 className="leading-tight">
+          BACKEND <br />
+          <span className="text-retro-accent">DEVELOPER</span>
+          & SYSTEM <br />
+          <span className="text-retro-accent">DESIGNER</span>
+        </h1>
+        <p className="font-mono text-sm md:text-base max-w-lg mt-6 text-retro-text-secondary">
+          Creating solutions for real-time problems.
+        </p>
 
-        <div className="space-y-6">
-          <h2 className="text-sm md:text-base font-medium tracking-wider text-blue-600 dark:text-blue-400 uppercase">
-            Portfolio
-          </h2>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Dhruv Sharma
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
-            Crafting digital experiences with code and creativity.
-            <br />
-            <span className="text-gray-400 dark:text-gray-500">Full Stack Developer & UI/UX Enthusiast.</span>
-          </p>
-        </div>
-        
-        <motion.div 
-          className="pt-4 flex flex-col sm:flex-row gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          <a 
-            href="#projects"
-            className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-black/10"
-          >
-            View My Work
+        <div className="flex flex-wrap gap-4 mb-20 md:mb-0">
+          <a href="#projects" className="btn-retro uppercase text-sm tracking-wider">
+            EXPLORE PROJECTS
           </a>
-          
-          <button 
+          <button
             onClick={() => setShowResume(true)}
-            className="px-8 py-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-xl shadow-black/5 flex items-center justify-center gap-2"
+            className="btn-retro uppercase text-sm tracking-wider"
           >
-            <FiEye /> View Resume
+            RESUME
           </button>
-        </motion.div>
+        </div>
       </motion.div>
 
-      {/* Premium Resume Modal */}
+      <motion.div
+        className="window-frame relative hidden md:block"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <div className="window-header">
+          <span>PORTRAIT_01.JPG</span>
+          <div className="window-controls">
+            <button className="window-btn" aria-label="Minimize">
+              <span className="minimize-icon"></span>
+            </button>
+            <button className="window-btn" aria-label="Maximize">
+              <span className="maximize-icon"></span>
+            </button>
+            <button className="window-btn window-close" aria-label="Close">
+              <span className="close-icon"></span>
+            </button>
+          </div>
+        </div>
+        <img
+          src={heroImage}
+          alt="Dhruv Sharma"
+          className="hero-image"
+          style={{ height: '400px', objectFit: 'cover' }}
+        />
+      </motion.div>
+
+
+      {/* Full Width Marquee */}
+      <div className="absolute left-1/2 -translate-x-1/2 w-screen bottom-0 md:bottom-20 z-10 border-y-2 border-retro-border bg-retro-bg/80 backdrop-blur-sm text-retro-text py-4 overflow-hidden">
+        <div className="flex animate-marquee whitespace-nowrap font-heading font-bold text-xl uppercase tracking-widest items-center">
+          {[
+            { name: 'JAVASCRIPT', icon: SiJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+            { name: 'NODE.JS', icon: SiNodedotjs, url: 'https://nodejs.org' },
+            { name: 'EXPRESS', icon: SiExpress, url: 'https://expressjs.com' },
+            { name: 'MONGODB', icon: SiMongodb, url: 'https://www.mongodb.com' },
+            { name: 'GIT', icon: SiGit, url: 'https://git-scm.com' },
+            { name: 'LINUX', icon: SiLinux, url: 'https://www.linux.org' },
+            { name: 'FLUTTER', icon: SiFlutter, url: 'https://flutter.dev' },
+            { name: 'DOCKER', icon: SiDocker, url: 'https://www.docker.com' },
+            { name: 'SUPABASE', icon: SiSupabase, url: 'https://supabase.com' },
+            { name: 'C++', icon: SiCplusplus, url: 'https://isocpp.org' },
+            { name: 'UNREAL', icon: SiUnrealengine, url: 'https://www.unrealengine.com' },
+            { name: 'BLENDER', icon: SiBlender, url: 'https://www.blender.org' },
+            { name: 'FIGMA', icon: SiFigma, url: 'https://www.figma.com' },
+            { name: 'PYTHON', icon: SiPython, url: 'https://www.python.org' },
+          ].map((skill, index) => (
+            <a
+              key={index}
+              href={skill.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 mx-8 hover:text-retro-accent transition-colors duration-300"
+            >
+              <skill.icon className="w-6 h-6" />
+              <span>{skill.name}</span>
+              <span className="text-retro-accent ml-8">•</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
       <ResumeModal
         isOpen={showResume}
         onClose={() => setShowResume(false)}

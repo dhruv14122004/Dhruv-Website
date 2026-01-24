@@ -20,8 +20,8 @@ const Branch = ({ isLeft, index, isActive }) => {
           stroke="currentColor"
           strokeWidth="2"
           className={`
-            text-gray-200 dark:text-gray-700
-            ${isActive ? 'text-blue-400 dark:text-blue-500' : ''}
+            text-retro-border
+            ${isActive ? 'text-retro-accent' : ''}
           `}
           initial={{ pathLength: 0 }}
           whileInView={{ pathLength: 1 }}

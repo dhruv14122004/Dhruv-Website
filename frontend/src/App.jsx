@@ -1,33 +1,42 @@
 import { useState, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
+import Header from './components/Header'
 import Hero from './components/Hero'
-import Skills from './components/Skills'
 import TreeTimeline from './components/TreeTimeline'
-import BentoProjects from './components/BentoProjects'
+import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import BottomNavbar from './components/BottomNavbar'
+import ScrollToTop from './components/ScrollToTop'
+import Loader from './components/Loader'
 
 function App() {
   const [darkMode, setDarkMode] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [darkMode])
+    // Force dark mode for retro theme compatibility if needed, 
+    // or rely on CSS !important overrides.
+    document.documentElement.classList.add('dark')
+  }, [])
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500 font-main pb-28 md:pb-32">
-      <Hero />
-      <Skills />
-      <TreeTimeline />
-      <BentoProjects />
-      <Contact />
-      <Footer />
-      <BottomNavbar darkMode={darkMode} setDarkMode={setDarkMode} />
-    </div>
+    <>
+      <AnimatePresence>
+        {loading && <Loader key="loader" onComplete={() => setLoading(false)} />}
+      </AnimatePresence>
+
+      <div className="min-h-screen pb-10 relative">
+        <Header />
+        <div className="container">
+          <Hero />
+          <TreeTimeline />
+          <Projects />
+          <Contact />
+        </div>
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </>
   )
 }
 
