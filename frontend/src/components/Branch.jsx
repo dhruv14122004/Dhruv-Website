@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion';
 
 const Branch = ({ isLeft, index, isActive }) => {
-  // SVG path for curved branch
+  
   const pathD = isLeft
-    ? "M 60 25 Q 30 25 10 25" // curves left
-    : "M 0 25 Q 30 25 50 25"; // curves right
+    ? "M 60 25 Q 30 25 10 25" 
+    : "M 0 25 Q 30 25 50 25";
 
   return (
     <div className={`absolute top-1/2 -translate-y-1/2 ${isLeft ? 'right-0 translate-x-full' : 'left-0 -translate-x-full'}`}>
       <svg
         width="60"
         height="50"
-        viewBox={isLeft ? "0 0 60 50" : "0 0 60 50"}
+        viewBox={isLeft ? "0 0 60 50" : "0 0 60 50"}  
         className="overflow-visible"
       >
         <motion.path
