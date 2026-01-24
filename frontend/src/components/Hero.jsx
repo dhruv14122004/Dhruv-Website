@@ -8,6 +8,23 @@ import ResumeModal from './ResumeModal';
 const Hero = () => {
   const [showResume, setShowResume] = useState(false);
 
+  const skills = [
+    { name: 'JAVASCRIPT', icon: SiJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { name: 'NODE.JS', icon: SiNodedotjs, url: 'https://nodejs.org' },
+    { name: 'EXPRESS', icon: SiExpress, url: 'https://expressjs.com' },
+    { name: 'MONGODB', icon: SiMongodb, url: 'https://www.mongodb.com' },
+    { name: 'GIT', icon: SiGit, url: 'https://git-scm.com' },
+    { name: 'LINUX', icon: SiLinux, url: 'https://www.linux.org' },
+    { name: 'FLUTTER', icon: SiFlutter, url: 'https://flutter.dev' },
+    { name: 'DOCKER', icon: SiDocker, url: 'https://www.docker.com' },
+    { name: 'SUPABASE', icon: SiSupabase, url: 'https://supabase.com' },
+    { name: 'C++', icon: SiCplusplus, url: 'https://isocpp.org' },
+    { name: 'UNREAL', icon: SiUnrealengine, url: 'https://www.unrealengine.com' },
+    { name: 'BLENDER', icon: SiBlender, url: 'https://www.blender.org' },
+    { name: 'FIGMA', icon: SiFigma, url: 'https://www.figma.com' },
+    { name: 'PYTHON', icon: SiPython, url: 'https://www.python.org' },
+  ];
+
   return (
     <section id="hero" className="hero relative">
       <motion.div
@@ -28,6 +45,15 @@ const Hero = () => {
         <p className="font-mono text-sm md:text-base max-w-lg mt-6 text-retro-text-secondary">
           Creating solutions for real-time problems.
         </p>
+
+        <div className="flex flex-wrap gap-3 my-8 max-w-lg">
+          {skills.map((skill, index) => (
+            <a key={index} href={skill.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-bold font-mono text-retro-text hover:text-retro-accent uppercase bg-retro-surface px-2 py-1 border border-retro-border hover:-translate-y-1 transition-transform">
+              <skill.icon className="w-3 h-3 text-retro-accent" />
+              {skill.name}
+            </a>
+          ))}
+        </div>
 
         <div className="flex flex-wrap gap-4 mb-20 md:mb-0">
           <a href="#projects" className="btn-retro uppercase text-sm tracking-wider">
@@ -71,39 +97,7 @@ const Hero = () => {
       </motion.div>
 
 
-      {/* Full Width Marquee */}
-      <div className="absolute left-1/2 -translate-x-1/2 w-screen bottom-0 md:bottom-20 z-10 border-y-2 border-retro-border bg-retro-bg/80 backdrop-blur-sm text-retro-text py-4 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap font-heading font-bold text-xl uppercase tracking-widest items-center">
-          {[
-            { name: 'JAVASCRIPT', icon: SiJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-            { name: 'NODE.JS', icon: SiNodedotjs, url: 'https://nodejs.org' },
-            { name: 'EXPRESS', icon: SiExpress, url: 'https://expressjs.com' },
-            { name: 'MONGODB', icon: SiMongodb, url: 'https://www.mongodb.com' },
-            { name: 'GIT', icon: SiGit, url: 'https://git-scm.com' },
-            { name: 'LINUX', icon: SiLinux, url: 'https://www.linux.org' },
-            { name: 'FLUTTER', icon: SiFlutter, url: 'https://flutter.dev' },
-            { name: 'DOCKER', icon: SiDocker, url: 'https://www.docker.com' },
-            { name: 'SUPABASE', icon: SiSupabase, url: 'https://supabase.com' },
-            { name: 'C++', icon: SiCplusplus, url: 'https://isocpp.org' },
-            { name: 'UNREAL', icon: SiUnrealengine, url: 'https://www.unrealengine.com' },
-            { name: 'BLENDER', icon: SiBlender, url: 'https://www.blender.org' },
-            { name: 'FIGMA', icon: SiFigma, url: 'https://www.figma.com' },
-            { name: 'PYTHON', icon: SiPython, url: 'https://www.python.org' },
-          ].map((skill, index) => (
-            <a
-              key={index}
-              href={skill.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 mx-8 hover:text-retro-accent transition-colors duration-300"
-            >
-              <skill.icon className="w-6 h-6" />
-              <span>{skill.name}</span>
-              <span className="text-retro-accent ml-8">•</span>
-            </a>
-          ))}
-        </div>
-      </div>
+
 
       <ResumeModal
         isOpen={showResume}

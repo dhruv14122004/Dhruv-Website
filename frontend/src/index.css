@@ -588,6 +588,10 @@ footer {
     justify-content: center !important;
   }
 
+  .scroll-to-top {
+    bottom: 110px;
+  }
+
   /* Reset header styles on mobile as component handles some parts, 
      but ensure flex direction is column for spacing */
   header {

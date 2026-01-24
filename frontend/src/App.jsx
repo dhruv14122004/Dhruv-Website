@@ -7,6 +7,8 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
+import GithubSection from './components/GithubSection'
+import FloatingSocials from './components/FloatingSocials'
 import Loader from './components/Loader'
 
 function App() {
@@ -31,10 +33,12 @@ function App() {
           <Hero />
           <TreeTimeline />
           <Projects />
+          <GithubSection />
           <Contact />
         </div>
         <Footer />
         <ScrollToTop />
+        {!loading && <FloatingSocials />}
       </div>
     </>
   )
