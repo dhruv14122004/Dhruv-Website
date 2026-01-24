@@ -73,7 +73,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20">
-      <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title justify-center">Projects</h2>
+      <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title">Projects</h2>
 
 
       <div className="portfolio-grid">

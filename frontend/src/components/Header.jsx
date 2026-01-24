@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiArrowUpRight } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
+import SpotifyDropdown from './SpotifyDropdown';
 
 const Header = () => {
     const [timeStr, setTimeStr] = useState('');
@@ -37,23 +38,33 @@ const Header = () => {
 
             {/* Navigation Section - Centered (Desktop) */}
             <nav className="hidden md:flex flex-1 justify-center">
-                <div className="nav-links flex gap-8">
+                <div className="nav-links flex gap-8 items-center">
                     <a href="#projects" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">PROJECTS</a>
                     <a href="#experience" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">EXPERIENCE</a>
-                    <a href="#skills" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">SKILLS</a>
                     <a href="#contact" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">CONTACT</a>
+                    <a
+                        href="/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1 px-3 py-1.5 bg-retro-accent text-retro-bg font-bold font-mono text-xs hover:bg-white hover:text-retro-accent transition-colors uppercase tracking-wider"
+                    >
+                        BLOGS
+                        <FiArrowUpRight size={14} />
+                    </a>
                 </div>
             </nav>
 
             {/* System Status Section - Right Aligned (Desktop) */}
-            <div className="hidden md:flex flex-shrink-0 w-1/4 justify-end">
+            <div className="hidden md:flex flex-shrink-0 w-1/4 justify-end items-center gap-6">
+                <SpotifyDropdown />
                 <div className="system-status text-[10px] md:text-xs font-mono text-retro-accent tracking-wider">
                     TIME: {timeStr} | CPU: {cpuUsage}%
                 </div>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex-shrink-0 w-1/4 flex justify-end">
+            <div className="md:hidden flex-shrink-0 w-1/4 flex justify-end items-center gap-4">
+                <SpotifyDropdown />
                 <button onClick={toggleMenu} className="text-retro-text hover:text-retro-accent focus:outline-none p-2 border border-transparent active:border-retro-accent">
                     {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>

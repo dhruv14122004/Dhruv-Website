@@ -14,19 +14,19 @@ const GithubSection = () => {
 
     return (
         <section id="opensource" className="py-20 px-4">
-            <div className="max-w-7xl mx-auto">
+            <div className="w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="mb-16"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title justify-center">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title">
                         Open Source
                     </h2>
                 </motion.div>
 
-                <div className="flex flex-col gap-12">
+                <div className="max-w-7xl mx-auto flex flex-col gap-12">
                     {/* Activity Graph */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

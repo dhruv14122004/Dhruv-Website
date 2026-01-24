@@ -12,7 +12,7 @@ const experiences = [
     type: 'Internship',
     duration: 'Jan 2026 – Present',
     description:
-  'Building scalable and production-ready backend systems for multiple client projects using Node.js and Express. Developing secure REST APIs, implementing authentication and authorization, optimizing performance, and deploying containerized services on AWS using Docker while following Git-based collaboration workflows.',
+      'Building scalable and production-ready backend systems for multiple client projects using Node.js and Express. Developing secure REST APIs, implementing authentication and authorization, optimizing performance, and deploying containerized services on AWS using Docker while following Git-based collaboration workflows.',
 
     tech: ['JavaScript', 'Node.js', 'Express.js', 'AWS', 'Docker', 'Git'],
   },
@@ -55,7 +55,7 @@ const TreeTimeline = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-                <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title justify-center">Experience</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title">Experience</h2>
 
         </motion.div>
 
@@ -67,31 +67,13 @@ const TreeTimeline = () => {
           {/* Experience items */}
           <div className="relative z-10 space-y-12 md:space-y-16">
             {experiences.map((exp, index) => {
-              const isLeft = index % 2 === 0;
               const isActive = activeId === exp.id;
 
               return (
                 <div
                   key={exp.id}
-                  className={`
-                    relative flex items-center
-                    ${isLeft ? 'justify-start' : 'justify-end'}
-                  `}
+                  className="relative flex items-center pl-24"
                 >
-                  {/* Left side content */}
-                  {isLeft && (
-                    <div className="w-5/12 pr-8 relative">
-                      <ExperienceNode
-                        experience={exp}
-                        index={index}
-                        isLeft={true}
-                        isActive={isActive}
-                        onClick={() => handleNodeClick(exp.id)}
-                      />
-                      <Branch isLeft={true} index={index} isActive={isActive} />
-                    </div>
-                  )}
-
                   {/* Center dot on trunk */}
                   <motion.div
                     initial={{ scale: 0 }}
@@ -99,7 +81,7 @@ const TreeTimeline = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     className={`
-                      absolute left-1/2 -translate-x-1/2
+                      absolute left-8 -translate-x-1/2
                       w-4 h-4
                       border-2 border-retro-bg
                       ${isActive
@@ -111,23 +93,17 @@ const TreeTimeline = () => {
                     `}
                   />
 
-                  {/* Spacer for alternating layout */}
-                  {isLeft && <div className="w-5/12" />}
-                  {!isLeft && <div className="w-5/12" />}
-
                   {/* Right side content */}
-                  {!isLeft && (
-                    <div className="w-5/12 pl-8 relative">
-                      <ExperienceNode
-                        experience={exp}
-                        index={index}
-                        isLeft={false}
-                        isActive={isActive}
-                        onClick={() => handleNodeClick(exp.id)}
-                      />
-                      <Branch isLeft={false} index={index} isActive={isActive} />
-                    </div>
-                  )}
+                  <div className="w-full relative">
+                    <ExperienceNode
+                      experience={exp}
+                      index={index}
+                      isLeft={false}
+                      isActive={isActive}
+                      onClick={() => handleNodeClick(exp.id)}
+                    />
+                    <Branch isLeft={false} index={index} isActive={isActive} />
+                  </div>
                 </div>
               );
             })}

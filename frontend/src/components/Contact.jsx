@@ -57,15 +57,15 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-16 md:py-20 transition-colors duration-500">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title justify-center">Get In Touch</h2>
-          <p className="text-lg text-retro-text-secondary max-w-2xl mx-auto font-mono">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title">Get In Touch</h2>
+          <p className="text-lg text-retro-text-secondary max-w-2xl font-mono">
             Have a project in mind or just want to chat? I'd love to hear from you.
             Let's create something amazing together!
           </p>
@@ -75,7 +75,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center gap-12"
+          className="max-w-4xl mx-auto flex flex-col items-center gap-12"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             {contactInfo.map((info, index) => (

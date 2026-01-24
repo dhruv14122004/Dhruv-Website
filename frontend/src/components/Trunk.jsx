@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Trunk = ({ height }) => {
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 flex flex-col items-center">
+    <div className="absolute left-8 -translate-x-1/2 top-0 bottom-0 flex flex-col items-center">
       {/* Main trunk line */}
       <motion.div
         initial={{ scaleY: 0 }}

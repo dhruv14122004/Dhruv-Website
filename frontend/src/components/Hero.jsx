@@ -1,13 +1,8 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SiSupabase, SiPython, SiMongodb, SiGit, SiFlutter, SiFirebase, SiUnrealengine, SiFigma, SiC, SiCplusplus, SiJavascript, SiNodedotjs, SiDocker, SiExpress, SiLinux, SiReact, SiBlender } from 'react-icons/si';
 import heroImage from '../assets/me.jpeg';
-import resumePDF from '../assets/Dhruv_Sharma_Resume.pdf';
-import ResumeModal from './ResumeModal';
 
-const Hero = () => {
-  const [showResume, setShowResume] = useState(false);
-
+const Hero = ({ onOpenResume }) => {
   const skills = [
     { name: 'JAVASCRIPT', icon: SiJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
     { name: 'NODE.JS', icon: SiNodedotjs, url: 'https://nodejs.org' },
@@ -60,7 +55,7 @@ const Hero = () => {
             EXPLORE PROJECTS
           </a>
           <button
-            onClick={() => setShowResume(true)}
+            onClick={onOpenResume}
             className="btn-retro uppercase text-sm tracking-wider"
           >
             RESUME
@@ -95,16 +90,6 @@ const Hero = () => {
           style={{ height: '400px', objectFit: 'cover' }}
         />
       </motion.div>
-
-
-
-
-      <ResumeModal
-        isOpen={showResume}
-        onClose={() => setShowResume(false)}
-        file={resumePDF}
-        filename="Dhruv Sharma - Resume"
-      />
     </section>
   );
 };
