@@ -22,7 +22,7 @@ const experiences = [
     role: 'Flutter Mobile App Developer Intern',
     company: 'Dynamicore Strategies',
     type: 'internship',
-    duration: 'May 2025 – August 2026',
+    duration: 'May 2025 – August 2025',
     description: 'Built a Flutter Based Fintech App with portfolio tracking and dynamic responsive layouts. Developed portfolio tracking, mutual fund analysis, investment dashboard, AI portfolio analyzer, and real-time financial data visualization with custom responsive widget library.',
     tech: ['Flutter', 'Dart', 'MediaQuery', 'Figma'],
   },
