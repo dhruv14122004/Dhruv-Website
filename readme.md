@@ -2,7 +2,9 @@
 
 A stunning, retro-themed immersive portfolio website designed to showcase my journey, projects, and skills. Built with modern web technologies, this application features a unique neo-brutalism design aesthetic, interactive 3D elements, and smooth animations.
 
-![Hero Section](./assets/screenshots/hero.png)
+
+<img width="1914" height="927" alt="Screenshot From 2026-01-26 18-33-44" src="https://github.com/user-attachments/assets/a81ebe70-f8af-4262-be32-c3b3077934e4" />
+
 
 ## 🚀 Features
 
@@ -34,13 +36,6 @@ A stunning, retro-themed immersive portfolio website designed to showcase my jou
 - **Email Service**: [Nodemailer](https://nodemailer.com/) (For contact form submissions)
 - **Utilities**: [Cors](https://www.npmjs.com/package/cors), [Dotenv](https://www.npmjs.com/package/dotenv)
 
-## 📸 Screenshots
-
-### Experience & Timeline
-![Experience Section](./assets/screenshots/experience.png)
-
-### Projects Showcase
-![Projects Section](./assets/screenshots/projects.png)
 
 ## 📦 Installation & Setup
 
@@ -118,15 +113,6 @@ Dhruv-Website/
 │   └── package.json
 └── readme.md               # Project documentation
 ```
-
-## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
-
-## 👤 Author
-**Dhruv Sharma**
-- GitHub: [@dhruv14122004](https://github.com/dhruv14122004)
-- LinkedIn: [Dhruv Sharma](https://www.linkedin.com/in/dhruvsharmaa14/)
-- Portfolio: [dihruv.me](https://dihruv.me)
 
 ---
 *Built with ❤️ by Dhruv Sharma*
