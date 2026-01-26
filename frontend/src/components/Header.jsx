@@ -43,7 +43,7 @@ const Header = () => {
                     <a href="#experience" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">EXPERIENCE</a>
                     <a href="#contact" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">CONTACT</a>
                     <a
-                        href="/"
+                        href="https://blog-verse-iota.vercel.app/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-1 px-3 py-1.5 bg-retro-accent text-retro-bg font-bold font-mono text-xs hover:bg-white hover:text-retro-accent transition-colors uppercase tracking-wider"
