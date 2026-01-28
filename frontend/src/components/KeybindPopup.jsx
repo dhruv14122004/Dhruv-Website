@@ -31,7 +31,7 @@ const KeybindPopup = () => {
         { keys: ['G'], desc: 'Open Source' },
         { keys: ['H'], desc: 'Home' },
         { keys: ['B'], desc: 'View Blog' },
-        { keys: ['S'], desc: 'Spotify Stats' },
+        { keys: ['S'], desc: 'Playlist' },
         { keys: ['⇧', '1-5'], desc: 'Social Links' },
     ];
 

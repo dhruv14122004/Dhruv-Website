@@ -175,7 +175,7 @@ header {
   border: 2px solid var(--text-primary);
   box-shadow: var(--retro-shadow);
   background: var(--surface);
-  padding: 4px;
+  padding: 0;
 }
 
 .window-header {

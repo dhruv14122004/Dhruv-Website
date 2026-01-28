@@ -8,6 +8,8 @@ import dihImage from '../assets/dih_tix.png'
 import cvipImage from '../assets/cvip_image.png'
 
 const Projects = () => {
+  const [expandedId, setExpandedId] = useState(null);
+
   const projects = [
     {
       id: 1,
@@ -71,89 +73,120 @@ const Projects = () => {
     },
   ];
 
+  const toggleProject = (id) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <section id="projects" className="py-20">
-      <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title">Projects</h2>
+      <h2 className="text-3xl md:text-5xl font-bold mb-10 font-heading uppercase text-retro-text section-title">Projects</h2>
 
+      <div className="flex flex-col gap-4">
+        {projects.map((project, index) => {
+          const isOpen = expandedId === project.id;
+          const num = (index + 1).toString().padStart(2, '0');
 
-      <div className="portfolio-grid">
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="project-card"
-          >
-            {/* Window Header */}
-            <div className="window-header">
-              <span className="uppercase text-xs tracking-wider">{project.title}</span>
-              <div className="window-controls">
-                <button className="window-btn" aria-label="Minimize">
-                  <span className="minimize-icon"></span>
-                </button>
-                <button className="window-btn" aria-label="Maximize">
-                  <span className="maximize-icon"></span>
-                </button>
-                <button className="window-btn window-close" aria-label="Close">
-                  <span className="close-icon"></span>
-                </button>
-              </div>
-            </div>
+          return (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className={`border-2 transition-all duration-300 ${isOpen ? 'border-retro-accent bg-retro-surface/50' : 'border-retro-border bg-retro-surface'}`}
+            >
+              <button
+                onClick={() => toggleProject(project.id)}
+                className="w-full flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 p-6 text-left hover:bg-white/5 transition-colors group"
+                aria-expanded={isOpen}
+              >
+                <span className={`text-4xl md:text-5xl font-heading font-extrabold leading-none transition-colors ${isOpen ? 'text-retro-accent' : 'text-retro-text/50 group-hover:text-retro-text'}`}>
+                  {num}/
+                </span>
 
-            {/* Image */}
-            <div className="relative group overflow-hidden border-b-2 border-retro-border">
-              <img
-                src={project.image}
-                alt={project.subtitle}
-                className="project-img group-hover:scale-105 transition-transform duration-500"
-              />
-              {/* Overlay with links */}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-retro-bg border-2 border-retro-text text-retro-text hover:bg-retro-accent hover:text-retro-bg hover:border-retro-bg transition-colors"
-                  title="View Source"
-                >
-                  <FiGithub size={20} />
-                </a>
-                {project.demo !== '#' && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-retro-bg border-2 border-retro-text text-retro-text hover:bg-retro-accent hover:text-retro-bg hover:border-retro-bg transition-colors"
-                    title="Live Demo"
+                <div className="flex-1">
+                  <h3 className={`text-xl md:text-2xl font-heading font-bold uppercase mb-1 transition-colors ${isOpen ? 'text-retro-text' : 'text-retro-text group-hover:text-retro-accent'}`}>
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-retro-text-secondary font-mono hidden md:block">
+                    {project.subtitle}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 self-end md:self-auto">
+                  <span className="text-xs font-mono text-retro-accent block md:hidden">{isOpen ? 'CLOSE' : 'VIEW'}</span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    className="text-retro-accent"
                   >
-                    <FiExternalLink size={20} />
-                  </a>
-                )}
-              </div>
-            </div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="square" />
+                    </svg>
+                  </motion.div>
+                </div>
+              </button>
 
-            {/* Content */}
-            <div className="project-info">
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.tags.map(tag => (
-                  <span key={tag} className="project-tag inline-block">#{tag}</span>
-                ))}
-              </div>
+              <motion.div
+                initial={false}
+                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <div className="p-6 pt-0 border-t border-dashed border-retro-border/50 mt-2 flex flex-col md:flex-row gap-8">
+                  {/* Project Image */}
+                  <div className="w-full md:w-5/12 aspect-video overflow-hidden border border-retro-text bg-black relative group">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-retro-accent/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
 
-              <h3 className="project-title font-heading uppercase leading-tight">
-                {project.subtitle}
-              </h3>
+                  {/* Details */}
+                  <div className="flex-1 flex flex-col justify-between py-2">
+                    <div>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="px-2 py-1 text-xs font-bold text-retro-bg bg-retro-text-secondary">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                      <p className="text-retro-text text-base md:text-lg leading-relaxed font-mono mb-8">
+                        {project.description}
+                      </p>
+                    </div>
 
-              <p className="text-sm text-retro-text-secondary font-mono leading-relaxed">
-                {project.description}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+                    <div className="flex gap-4">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-6 py-3 border-2 border-retro-text text-retro-text hover:bg-retro-accent hover:border-retro-accent hover:text-retro-bg transition-all font-bold font-mono text-sm uppercase group/btn"
+                      >
+                        <FiGithub className="group-hover/btn:scale-110 transition-transform" />
+                        Source Code
+                      </a>
+                      {project.demo !== '#' && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-6 py-3 bg-retro-text text-retro-bg hover:bg-retro-accent hover:text-retro-bg transition-all font-bold font-mono text-sm uppercase group/btn"
+                        >
+                          <FiExternalLink className="group-hover/btn:scale-110 transition-transform" />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          );
+        })}
       </div>
-
     </section>
   );
 };

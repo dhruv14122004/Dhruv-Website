@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX, FiArrowUpRight } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import SpotifyDropdown from './SpotifyDropdown';
 
 const Header = () => {
     const [timeStr, setTimeStr] = useState('');
@@ -56,7 +55,6 @@ const Header = () => {
 
             {/* System Status Section - Right Aligned (Desktop) */}
             <div className="hidden md:flex flex-shrink-0 w-1/4 justify-end items-center gap-6">
-                <SpotifyDropdown />
                 <div className="system-status text-[10px] md:text-xs font-mono text-retro-accent tracking-wider">
                     TIME: {timeStr} | CPU: {cpuUsage}%
                 </div>
@@ -64,7 +62,6 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex-shrink-0 w-1/4 flex justify-end items-center gap-4">
-                <SpotifyDropdown />
                 <button onClick={toggleMenu} className="text-retro-text hover:text-retro-accent focus:outline-none p-2 border border-transparent active:border-retro-accent">
                     {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>

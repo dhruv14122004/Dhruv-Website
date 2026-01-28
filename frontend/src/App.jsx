@@ -48,7 +48,7 @@ function App() {
 
         // External Links
         if (key === 'b') window.open('/', '_blank');
-        if (key === 's') window.open('https://volt.fm/user/f0uqsd4ky115yma4?time_frame=short', '_blank');
+        // if (key === 's') window.open('https://volt.fm/user/f0uqsd4ky115yma4?time_frame=short', '_blank');
 
         // Resume Shortcut
         if (key === 'r') setShowResume(prev => !prev);

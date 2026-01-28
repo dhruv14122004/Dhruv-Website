@@ -1,8 +1,11 @@
-import { motion } from 'framer-motion';
-import { SiSupabase, SiPython, SiMongodb, SiGit, SiFlutter, SiFirebase, SiUnrealengine, SiFigma, SiC, SiCplusplus, SiJavascript, SiNodedotjs, SiDocker, SiExpress, SiLinux, SiReact, SiBlender } from 'react-icons/si';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SiSupabase, SiPython, SiMongodb, SiGit, SiFlutter, SiFirebase, SiUnrealengine, SiFigma, SiC, SiCplusplus, SiJavascript, SiNodedotjs, SiDocker, SiExpress, SiLinux, SiReact, SiBlender, SiSpotify } from 'react-icons/si';
 import heroImage from '../assets/me.jpeg';
 
 const Hero = ({ onOpenResume }) => {
+  const [showSpotify, setShowSpotify] = useState(false);
+
   const skills = [
     { name: 'JAVASCRIPT', icon: SiJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
     { name: 'NODE.JS', icon: SiNodedotjs, url: 'https://nodejs.org' },
@@ -21,7 +24,7 @@ const Hero = ({ onOpenResume }) => {
   ];
 
   return (
-    <section id="hero" className="hero relative">
+    <section id="hero" className="hero relative items-center">
       <motion.div
         className="hero-content"
         initial={{ opacity: 0, x: -20 }}
@@ -50,7 +53,7 @@ const Hero = ({ onOpenResume }) => {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-4 mb-20 md:mb-0">
+        <div className="flex flex-wrap gap-4 mb-12 md:mb-0">
           <a href="#projects" className="btn-retro uppercase text-sm tracking-wider">
             EXPLORE PROJECTS
           </a>
@@ -61,6 +64,8 @@ const Hero = ({ onOpenResume }) => {
             RESUME
           </button>
         </div>
+
+        {/* Integrated Spotify Player Card - Sleek Version */}
       </motion.div>
 
       <motion.div
@@ -89,6 +94,49 @@ const Hero = ({ onOpenResume }) => {
           className="hero-image"
           style={{ height: '400px', objectFit: 'cover' }}
         />
+      </motion.div>
+
+      {/* Integrated Spotify Player Card - Sleek Version (Centered) */}
+      <motion.div
+        className="col-span-1 md:col-span-2 w-full flex justify-center mt-8 relative z-20"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+      >
+        <div className="w-full max-w-[760px] flex flex-col items-center">
+          <button
+            onClick={() => setShowSpotify(!showSpotify)}
+            className="flex items-center gap-2 mb-4 px-6 py-2 bg-retro-surface border border-retro-border hover:border-retro-accent text-retro-text hover:text-retro-accent transition-all uppercase font-bold text-sm tracking-wider"
+          >
+            <SiSpotify size={18} />
+            {showSpotify ? 'Close Playlist' : 'Open Spotify Playlist'}
+            <span className={`transform transition-transform ${showSpotify ? 'rotate-180' : ''}`}>▼</span>
+          </button>
+
+          <AnimatePresence>
+            {showSpotify && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="w-full overflow-hidden"
+              >
+                <div className="bg-[#18181b] border border-[#333] rounded-xl p-0 overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://open.spotify.com/embed/playlist/0ivSgL5syDu2yo0I5AZdzt?utm_source=generator&theme=0"
+                    width="100%"
+                    height="380"
+                    frameBorder="0"
+                    allowFullScreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    style={{ borderRadius: '12px' }}
+                  ></iframe>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </motion.div>
     </section>
   );
