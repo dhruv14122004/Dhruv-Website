@@ -45,15 +45,15 @@ const TreeTimeline = () => {
   };
 
   return (
-    <section id="experience" className="py-20 px-4 transition-colors duration-500">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="py-4 transition-colors duration-500">
+      <div className="w-full">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-heading uppercase text-retro-text section-title">Experience</h2>
 
@@ -110,52 +110,98 @@ const TreeTimeline = () => {
           </div>
         </div>
 
-        {/* Mobile: Simplified vertical list */}
+        {/* Mobile: Collapsible vertical list */}
         <div className="md:hidden mt-8">
-          <div className="relative pl-6 border-l-2 border-retro-border space-y-8">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="relative"
-              >
-                {/* Dot */}
-                <div className="absolute -left-[25px] top-2 w-3 h-3 bg-retro-text border-2 border-retro-bg" />
+          <div className="relative pl-6 border-l-2 border-retro-border space-y-6">
+            {experiences.map((exp, index) => {
+              const isExpanded = activeId === exp.id;
 
-                {/* Card */}
-                <div className="p-4 bg-retro-surface border-2 border-retro-border shadow-retro">
-                  <span className={`
-                    inline-block text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 border border-retro-border mb-2 font-mono text-retro-bg
-                    ${exp.type === 'work'
-                      ? 'bg-retro-accent'
-                      : exp.type === 'internship'
-                        ? 'bg-purple-600'
-                        : 'bg-green-600'
-                    }
-                  `}>
-                    {exp.type}
-                  </span>
-                  <h3 className="text-sm font-bold text-retro-text font-heading uppercase">{exp.role}</h3>
-                  <p className="text-xs text-retro-text font-mono mt-1">{exp.company}</p>
-                  <p className="text-xs text-retro-text-secondary mt-1 font-mono">{exp.duration}</p>
-                  <p className="text-xs text-retro-text-secondary mt-2 leading-relaxed font-mono">{exp.description}</p>
+              return (
+                <motion.div
+                  key={exp.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  {/* Dot */}
+                  <div className={`absolute -left-[29px] top-5 w-3 h-3 border-2 border-retro-bg transition-colors duration-300 ${isExpanded ? 'bg-retro-accent' : 'bg-retro-text'}`} />
 
-                  {/* Technologies */}
-                  {exp.tech && (
-                    <div className="flex flex-wrap gap-2 mt-3">
-                      {exp.tech.map((tech, i) => (
-                        <span key={i} className="text-[10px] font-mono text-retro-accent border border-retro-border px-1.5 py-0.5">
-                          {tech}
+                  {/* Card */}
+                  <div
+                    className={`
+                      bg-retro-surface border-2 transition-all duration-300
+                      ${isExpanded ? 'border-retro-accent shadow-[4px_4px_0px_0px_var(--accent-retro)]' : 'border-retro-border shadow-retro'}
+                    `}
+                  >
+                    <div
+                      onClick={() => handleNodeClick(exp.id)}
+                      className="p-4 cursor-pointer"
+                    >
+                      {/* Header: Type & Toggle */}
+                      <div className="flex justify-between items-start mb-2">
+                        <span className={`
+                          inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border border-retro-border font-mono text-retro-bg
+                          ${exp.type === 'work'
+                            ? 'bg-retro-accent'
+                            : exp.type === 'internship'
+                              ? 'bg-purple-500' // Keeping distinctive color for internship 
+                              : 'bg-green-600'
+                          }
+                        `}>
+                          {exp.type}
                         </span>
-                      ))}
+
+                        <motion.div
+                          animate={{ rotate: isExpanded ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" className={isExpanded ? "text-retro-accent" : "text-retro-text"}>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </motion.div>
+                      </div>
+
+                      {/* Title & Company */}
+                      <h3 className={`text-sm font-bold font-heading uppercase mb-1 transition-colors ${isExpanded ? 'text-retro-accent' : 'text-retro-text'}`}>
+                        {exp.role}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-2 text-xs font-mono text-retro-text-secondary mb-3">
+                        <span className="text-retro-text">{exp.company}</span>
+                        <span>•</span>
+                        <span>{exp.duration}</span>
+                      </div>
+
+                      {/* Skills (Always visible) */}
+                      {exp.tech && (
+                        <div className="flex flex-wrap gap-2">
+                          {exp.tech.map((tech, i) => (
+                            <span key={i} className="text-[10px] font-mono text-retro-text/70 border border-retro-border/50 px-1.5 py-0.5">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              </motion.div>
-            ))}
+
+                    {/* Expandable Description */}
+                    <motion.div
+                      initial={false}
+                      animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-4 pt-0 border-t border-dashed border-retro-border/50 mt-1">
+                        <p className="text-xs text-retro-text-secondary leading-relaxed font-mono pt-3">
+                          {exp.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

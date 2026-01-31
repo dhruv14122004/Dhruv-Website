@@ -38,9 +38,7 @@ const Header = () => {
             {/* Navigation Section - Centered (Desktop) */}
             <nav className="hidden md:flex flex-1 justify-center">
                 <div className="nav-links flex gap-8 items-center">
-                    <a href="#projects" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">PROJECTS</a>
                     <a href="#experience" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">EXPERIENCE</a>
-                    <a href="#contact" className="text-xs font-bold font-mono text-retro-text hover:text-retro-accent transition-colors uppercase tracking-wider">CONTACT</a>
                     <a
                         href="https://blog-verse-iota.vercel.app/"
                         target="_blank"

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
-import accidentImage from '../assets/accident.jpeg'
-import expenseImage from '../assets/expensemanager.jpeg'
-import escapeImage from '../assets/escape.png'
+import accident from '../assets/accident.jpeg'
 import dihImage from '../assets/dih_tix.png'
-import cvipImage from '../assets/cvip_image.png'
+import cvip from '../assets/cvip.png'
+import blogVerse from '../assets/blog-verse.png'
+import stonks from '../assets/stonks.png'
+import canary from '../assets/canary.png'
+import { FaEthereum } from 'react-icons/fa';
 
 const Projects = () => {
   const [expandedId, setExpandedId] = useState(null);
@@ -13,64 +15,91 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'ABNORMALITY_CLASS.EXE',
-      subtitle: 'Multi-Class Abnormality Classification',
-      description: 'Vision Transformers and ResNet model for endoscopy imagery. Ranked 7th globally in Capsule Vision 2024.',
-      image: cvipImage,
-      tags: ['PYTHON', 'ML', 'RESNET'],
-      github: 'https://github.com/devrishivermaa/capsule-commandos',
-      demo: '#'
+      title: 'Multi-Class Abnormality Classification',
+      description: 'Developed Vision Transformer and ResNet based deep learning model for multi-class classification of endoscopy images, focusing on automated gastrointestinal abnormality detection. <b>Ranked 7th in Capsule Vision 2024 Challenge.</b>',
+      image: cvip,
+      tags: ['PYTHON', 'ML', `CNN`, `RESNET`, `VIT`, `MVIT`, `DaVIT`, `CUDA`],
+      github: 'https://github.com/dhruv14122004/capsule-commandos',
+      year: "2024",
+      demo: 'https://arxiv.org/abs/2410.19973',
+      features: [
+        `Used Multiple Model like ResNet, ViT, MViT, DaViT for classification.`,
+        `Achieved 92.5% accuracy on the Capsule Vision 2024 dataset.`,
+        `Ranked 7th in Capsule Vision 2024 Challenge.`,
+      ]
     },
     {
       id: 2,
-      title: 'DTIX_PROTOCOL',
-      subtitle: 'Decentralized Ticketing System',
+      title: 'DTIX',
       description: 'Blockchain-based NFT ticketing platform preventing scalping and transparent auctions.',
       image: dihImage,
-      tags: ['WEB3', 'REACT', 'SOLIDITY'],
-      github: 'https://github.com/dhruv14122004',
-      demo: '#'
+      year: "2025",
+      tags: [`NODEJS`, `EXPRESS`, `MONGODB`, `STRIPE API`, `JWT`, 'REACT', `TAILWIND CSS`],
+      github: 'https://github.com/dhruv14122004/Ticket_Booking_app',
+      demo: 'https://ticket-booking-app-c64o.vercel.app/',
+      features : [
+        `Buy, sell, and resell tickets without intermediaries.`,
+        `Ticket transfer and resale with transparent pricing.`,
+        `Event Browsing and Searching`
+      ]
     },
     {
       id: 3,
-      title: 'FINTECH_APP_V1',
-      subtitle: 'Flutter Finance Suite',
-      description: 'Cross-platform mobile application for portfolio tracking and mutual fund analysis with AI.',
-      image: expenseImage,
-      tags: ['FLUTTER', 'DART', 'FIREBASE'],
-      github: 'https://github.com/dhruv14122004',
-      demo: '#'
+      title: 'Blog-Verse',
+      description: 'BlogVerse is a personal blogging platform for sharing ideas, experiences, and technical insights.It is built with a modern tech stack and optimized for speed and usability.The platform focuses on simplicity, performance, and good user experience.',
+      year: "2026",
+      image: blogVerse,
+      tags: [`NODEJS`, `EXPRESS`, 'MONGODB', `JWT`, `Bcrypt`, `Mistral API`, 'Gemini-API', `IMAGEKIT`, 'REACT', 'TAILWIND CSS'],
+      github: 'https://github.com/dhruv14122004/Blog-verse',
+      demo: 'https://blog-verse-iota.vercel.app/',
+      features: [
+        'AI-powered content generation for helping user polish their blogs',
+        'Upload Images and Videos using ImageKit',
+        'JWT based authentication and authorization',
+        'Lazy Loading of Images and Videos'
+      ]
     },
     {
       id: 4,
+      title: 'STONKS',
+      description: 'The Virtual Stock Trading Flutter App is a simulation-based platform that allows users to practice stock trading using virtual money. Users can buy and sell stocks, track real-time price movements, and manage their portfolio. The goal is to help users learn trading concepts and strategies without any financial risk.',
+      image: stonks,
+      tags: [`Flutter`,`NODEJS`, `EXPRESS`, 'MONGODB', `JWT`, `Bcrypt`, `Mistral API`,`Supabase`, `OAuth`,`Freecrypto API`],
+      github: 'https://github.com/dhruv14122004/virtual_trading_app',
+      demo: '#',
+      features: [
+        `Real-time or near real-time stock price display`,
+        `Virtual wallet with balance tracking`,
+        `Buy and sell stocks with instant order execution`,
+        `Contains bracket order, stop-loss order, and trailing stop-loss order`,
+      ]
+    },
+    {
+      id: 5,
+      title: 'Canary Deployment Without Using Service Mesh',
+      description: 'Implemented a Canary Deployment strategy in Kubernetes without using a service mesh by running stable and canary application versions simultaneously.Traffic is distributed based on pod replica ratios using a single Kubernetes Service.Demonstrates practical understanding of Docker, Kubernetes deployments, and zero-downtime release strategies.',
+      image: canary,
+      tags: [`NODEJS`, `EXPRESS`, `Docker`, `Kubernetes`, `MiniKube`],
+      github: 'https://github.com/dhruv14122004/canary-deployment-without-using-service-mesh',
+      demo: '#',
+      features: [
+        `Implements canary deployment using native Kubernetes on Minikube without any service mesh`,
+        `Runs two versions of an application simultaneously`,
+        `Distributes traffic based on pod replica ratios using a single Kubernetes Service`,
+        `Rollback to previous version`,
+        `Deploy the new version of the application`
+      ]
+    },
+    {
+      id: 6,
       title: 'ACCIDENT_DETECTION',
-      subtitle: 'IoT Safety System',
       description: 'Real-time YOLO detection system taking immediate action on accident identification.',
-      image: accidentImage,
+      image: accident,
       tags: ['IOT', 'PYTHON', 'YOLO'],
       github: 'https://github.com/dhruv14122004',
       demo: '#'
     },
-    {
-      id: 5,
-      title: 'MAZE_RUNNER_UE5',
-      subtitle: 'Unreal Engine Open World',
-      description: 'High-fidelity open world game with dynamic environments and physics-based interactions.',
-      image: escapeImage,
-      tags: ['CPP', 'UNREAL', 'GAMEDEV'],
-      github: 'https://github.com/dhruv14122004',
-      demo: '#'
-    },
-    {
-      id: 6,
-      title: 'COMMERCE_FLUTTER',
-      subtitle: 'E-Commerce Shoe Platform',
-      description: 'Production-ready shopping application with real-time inventory and payments.',
-      image: dihImage,
-      tags: ['FLUTTER', 'FIREBASE', 'STRIPE'],
-      github: 'https://github.com/dhruv14122004/shoeApp',
-      demo: '#'
-    },
+
   ];
 
   const toggleProject = (id) => {
@@ -78,42 +107,55 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20">
-      <h2 className="text-3xl md:text-5xl font-bold mb-10 font-heading uppercase text-retro-text section-title">Projects</h2>
+    <section id="projects" className="pt-20 pb-4">
+      <h2 className="text-3xl md:text-5xl font-bold mb-10 font-heading uppercase text-retro-text section-title">Projects ({projects.length})</h2>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">   
         {projects.map((project, index) => {
           const isOpen = expandedId === project.id;
-          const num = (index + 1).toString().padStart(2, '0');
+          const num = (index).toString().padStart(2, '0');
 
           return (
             <motion.div
+              layout={false} // Disable layout bounce as per previous request
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className={`border-2 transition-all duration-300 ${isOpen ? 'border-retro-accent bg-retro-surface/50' : 'border-retro-border bg-retro-surface'}`}
+              className={`mb-4 relative rounded-none border-2 transition-colors duration-300 ${isOpen ? 'border-retro-accent bg-[#0d0d0d]' : 'border-retro-border bg-retro-surface'}`}
             >
+              {/* ALWAYS VISIBLE HEADER */}
               <button
                 onClick={() => toggleProject(project.id)}
-                className="w-full flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 p-6 text-left hover:bg-white/5 transition-colors group"
-                aria-expanded={isOpen}
+                className="w-full flex flex-col md:flex-row items-start gap-4 md:gap-8 p-6 text-left hover:bg-white/5 transition-colors group relative z-10"
               >
-                <span className={`text-4xl md:text-5xl font-heading font-extrabold leading-none transition-colors ${isOpen ? 'text-retro-accent' : 'text-retro-text/50 group-hover:text-retro-text'}`}>
+                {/* Number aligned with title */}
+                <span className={`text-4xl md:text-5xl font-heading font-extrabold leading-none transition-colors mt-1 w-24 md:w-32 shrink-0 text-right ${isOpen ? 'text-retro-accent' : 'text-retro-text/50 group-hover:text-retro-text'}`}>
                   {num}/
                 </span>
 
-                <div className="flex-1">
-                  <h3 className={`text-xl md:text-2xl font-heading font-bold uppercase mb-1 transition-colors ${isOpen ? 'text-retro-text' : 'text-retro-text group-hover:text-retro-accent'}`}>
+                <div className="flex-1 mt-1">
+                  <h3 className={`text-xl md:text-2xl font-heading font-bold uppercase mb-1 transition-colors leading-none ${isOpen ? 'text-retro-text' : 'text-retro-text group-hover:text-retro-accent'}`}>
                     {project.title}
                   </h3>
-                  <p className="text-sm text-retro-text-secondary font-mono hidden md:block">
-                    {project.subtitle}
-                  </p>
+
+                  {/* Skills visible in outer card (Preview) */}
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {project.tags.slice(0, 4).map(tag => (
+                      <span key={tag} className={`px-2 py-1 text-[10px] md:text-xs font-bold uppercase text-retro-bg ${isOpen ? 'bg-retro-accent' : 'bg-retro-text-secondary'}`}>
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 4 && (
+                      <span className={`px-2 py-1 text-[10px] md:text-xs font-bold border uppercase ${isOpen ? 'text-retro-accent border-retro-accent' : 'text-retro-text-secondary border-retro-text-secondary'}`}>
+                        +{project.tags.length - 4}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                <div className="flex items-center gap-4 self-end md:self-auto">
+                <div className="flex items-center gap-4 self-end md:self-auto md:ml-auto md:pt-2">
                   <span className="text-xs font-mono text-retro-accent block md:hidden">{isOpen ? 'CLOSE' : 'VIEW'}</span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -126,59 +168,105 @@ const Projects = () => {
                 </div>
               </button>
 
+              {/* EXPANDABLE SYSTEM TERMINAL CONTENT */}
               <motion.div
                 initial={false}
                 animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="overflow-hidden"
               >
-                <div className="p-6 pt-0 border-t border-dashed border-retro-border/50 mt-2 flex flex-col md:flex-row gap-8">
-                  {/* Project Image */}
-                  <div className="w-full md:w-5/12 aspect-video overflow-hidden border border-retro-text bg-black relative group">
+                {/* System Terminal Design - Adapted for Accordion Body */}
+                <div className="border-t-2 border-retro-accent/50 mx-2 mb-2 bg-[#111] shadow-inner relative flex flex-col">
+
+                  {/* Image Section with Overlay UI */}
+                  <div className="w-full h-48 md:h-60 relative group shrink-0 border-b-2 border-retro-text/20">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
                     />
-                    <div className="absolute inset-0 bg-retro-accent/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 pointer-events-none bg-[length:100%_2px,3px_100%]"></div>
+
+                    {/* Image Overlay Data */}
+                    <div className="absolute top-2 left-2 bg-black/70 backdrop-blur-sm border border-retro-text/30 px-2 py-1 z-20">
+                      <p className="font-mono text-[10px] text-retro-text">IMG_SRC: {project.title.substring(0, 8).toUpperCase()}_V1.0</p>
+                    </div>
                   </div>
 
-                  {/* Details */}
-                  <div className="flex-1 flex flex-col justify-between py-2">
-                    <div>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map(tag => (
-                          <span key={tag} className="px-2 py-1 text-xs font-bold text-retro-bg bg-retro-text-secondary">
-                            #{tag}
-                          </span>
-                        ))}
+                  {/* Content Grid */}
+                  <div className="flex flex-col md:flex-row">
+
+                    {/* Left Sidebar: Tech & Meta */}
+                    <div className="md:w-1/3 border-r-0 md:border-r border-retro-text/20 bg-[#0a0a0a] p-6 flex flex-col gap-6">
+
+                      {/* Year / ID */}
+                      <div className="flex items-center justify-between border-b border-retro-text/20 pb-2">
+                        <span className="font-mono text-xs text-retro-text-secondary">ID: {num}</span>
+                        <span className="font-mono text-xs text-retro-text font-bold">{project.year || '2024'}</span>
                       </div>
-                      <p className="text-retro-text text-base md:text-lg leading-relaxed font-mono mb-8">
-                        {project.description}
-                      </p>
+
+                      {/* Stack Trace */}
+                      <div className="flex-1">
+                        <h4 className="font-mono text-xs text-retro-text-secondary mb-3 uppercase tracking-wider flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 bg-retro-accent rounded-sm animate-pulse"></span>
+                          Stack_Trace
+                        </h4>
+                        <div className="flex flex-wrap md:flex-col gap-2">
+                          {project.tags.map((tag, i) => (
+                            <div key={tag} className="font-mono text-xs text-retro-text/80 hover:text-retro-accent transition-colors cursor-default border-l border-retro-text/20 pl-2 hover:border-retro-accent hover:pl-3 duration-200">
+                              {`> ${tag}`}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="flex gap-4">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 border-2 border-retro-text text-retro-text hover:bg-retro-accent hover:border-retro-accent hover:text-retro-bg transition-all font-bold font-mono text-sm uppercase group/btn"
-                      >
-                        <FiGithub className="group-hover/btn:scale-110 transition-transform" />
-                        Source Code
-                      </a>
-                      {project.demo !== '#' && (
+                    {/* Right Main: Description & Actions */}
+                    <div className="md:w-2/3 p-6 md:p-8 flex flex-col bg-[#111]">
+                      {/* Description Box */}
+                      <div className="flex-1 mb-8 font-mono text-sm leading-relaxed text-gray-300">
+                        <h4 className="font-mono text-xs text-retro-text-secondary mb-3 uppercase tracking-wider">Description:</h4>
+                        <p dangerouslySetInnerHTML={{ __html: project.description }} />
+                      </div>
+
+                      {project.features && (
+                        <div className="mb-8">
+                          <h4 className="font-mono text-xs text-retro-text-secondary mb-3 uppercase tracking-wider">KEY_FEATURES:</h4>
+                          <ul className="space-y-2">
+                            {project.features.map((feature, i) => (
+                              <li key={i} className="flex items-start gap-3 text-gray-300">
+                                <span className="text-retro-accent mt-1">✓</span>
+                                <span className="text-sm">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Action Bar */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-auto pt-6 border-t border-dashed border-retro-text/30">
                         <a
-                          href={project.demo}
+                          href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-6 py-3 bg-retro-text text-retro-bg hover:bg-retro-accent hover:text-retro-bg transition-all font-bold font-mono text-sm uppercase group/btn"
+                          className="group flex items-center justify-center gap-3 px-4 py-3 bg-[#0a0a0a] border border-retro-text text-retro-text text-xs font-mono uppercase hover:bg-retro-text hover:text-retro-bg transition-all"
                         >
-                          <FiExternalLink className="group-hover/btn:scale-110 transition-transform" />
-                          Live Demo
+                          <FiGithub className="group-hover:rotate-12 transition-transform" />
+                          <span>SOURCE CODE</span>
                         </a>
-                      )}
+
+                        {(project.demo && project.demo !== '#' && project.demo !== '') && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-center gap-3 px-4 py-3 bg-retro-accent/10 border border-retro-accent text-retro-accent text-xs font-mono uppercase hover:bg-retro-accent hover:text-retro-bg transition-all shadow-[4px_4px_0px_rgba(0,0,0,0.5)]"
+                          >
+                            <FiExternalLink className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                            <span>[ RUN_DEMO ]</span>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

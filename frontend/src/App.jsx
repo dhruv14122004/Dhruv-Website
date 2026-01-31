@@ -74,14 +74,13 @@ function App() {
         {loading && <Loader key="loader" onComplete={() => setLoading(false)} />}
       </AnimatePresence>
 
-      <div className="min-h-screen pb-10 relative">
+      <div className="min-h-screen relative">
         <Header />
         <div className="container">
           <Hero onOpenResume={() => setShowResume(true)} />
           <TreeTimeline />
           <Projects />
           <GithubSection />
-          <Contact />
         </div>
         <Footer />
         <ScrollToTop />

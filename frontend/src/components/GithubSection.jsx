@@ -13,7 +13,7 @@ const GithubSection = () => {
     ];
 
     return (
-        <section id="opensource" className="py-20 px-4">
+        <section id="opensource" className="pt-20 pb-4">
             <div className="w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ const GithubSection = () => {
                         </div>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {pinnedRepos.map((item, index) => (
                             <motion.a
                                 key={item.repo}
@@ -64,7 +64,7 @@ const GithubSection = () => {
                                 />
                             </motion.a>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>

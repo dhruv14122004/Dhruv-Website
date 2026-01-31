@@ -1,10 +1,16 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiX } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiX, FiMail } from 'react-icons/fi';
 import { FaInstagram } from 'react-icons/fa';
 import { SiPeerlist } from 'react-icons/si';
 
 const FloatingSocials = () => {
     const socials = [
+        {
+            icon: FiMail,
+            name: 'Email',
+            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=dhruv.sharma122004@gmail.com',
+            bgClass: 'hover:bg-red-600'
+        },
         {
             icon: FiGithub,
             name: 'GitHub',

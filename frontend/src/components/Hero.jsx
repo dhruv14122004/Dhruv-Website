@@ -96,7 +96,6 @@ const Hero = ({ onOpenResume }) => {
         />
       </motion.div>
 
-      {/* Integrated Spotify Player Card - Sleek Version (Centered) */}
       <motion.div
         className="col-span-1 md:col-span-2 w-full flex justify-center mt-8 relative z-20"
         initial={{ opacity: 0, y: 20 }}
@@ -123,7 +122,7 @@ const Hero = ({ onOpenResume }) => {
               >
                 <div className="bg-[#18181b] border border-[#333] rounded-xl p-0 overflow-hidden shadow-lg">
                   <iframe
-                    src="https://open.spotify.com/embed/playlist/0ivSgL5syDu2yo0I5AZdzt?utm_source=generator&theme=0"
+                    src="https://open.spotify.com/embed/playlist/7GdFzNqgXgD9YfE8c1waUJ?utm_source=generator&theme=0"
                     width="100%"
                     height="380"
                     frameBorder="0"
@@ -138,6 +137,7 @@ const Hero = ({ onOpenResume }) => {
           </AnimatePresence>
         </div>
       </motion.div>
+
     </section>
   );
 };

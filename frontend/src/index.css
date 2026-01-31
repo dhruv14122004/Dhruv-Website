@@ -140,8 +140,8 @@ header {
 }
 
 .hero {
-  min-height: 100vh;
-  padding: 120px 0 100px;
+  min-height: 85vh;
+  padding: 120px 0 50px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
