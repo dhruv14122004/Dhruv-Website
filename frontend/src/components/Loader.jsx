@@ -54,7 +54,7 @@ const Loader = ({ onComplete }) => {
             </div>
 
             <div className="absolute bottom-20 text-center space-y-4">
-                <h2 className="text-2xl md:text-4xl font-bold font-heading text-retro-text shine-effect animate-pulse">
+                <h2 className="text-lg md:text-4xl font-bold font-heading text-retro-text shine-effect animate-pulse">
                     INITIALIZING SYSTEM...
                 </h2>
 
