@@ -7,6 +7,7 @@ import cvip from '../assets/cvip.png'
 import blogVerse from '../assets/blog-verse.png'
 import stonks from '../assets/stonks.png'
 import canary from '../assets/canary.png'
+import medianexus from '../assets/medianexus.png'
 import { FaEthereum } from 'react-icons/fa';
 
 const Projects = () => {
@@ -15,6 +16,24 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: 'MediaNexus',
+      description: 'Built a multi-role healthcare platform connecting patients, doctors, and hospital admins on a unified system. The platform digitizes the entire hospital workflow — from hospital discovery and appointment booking to AI-assisted prescriptions and medical record sharing. <b>Achieved 1st Runner up place in HackJKLU v5.0 Hackathon for this project.</b>',
+      image: medianexus,
+      tags: ['Express.js', `Node.js`, `TypeScript`,`Supabase`, `RAG-Model`, `OpenRouter LLM (arcee-ai/trinity-large-preview)`, `Sarvam AI TTS (bulbul:v3)`],
+      github: 'https://github.com/dhruv14122004/medinexus',
+      year: "2026",
+      demo: '#',
+      features: [
+        `Atomic slot booking with a 2-step lock-and-confirm flow preventing race conditions using conditional SQL UPDATEs; includes a FIFO waitlist queue with real-time SSE push notifications.`,
+        `Patient health chatbot with full anonymized medical history context, multi-report health trend analysis (improving/declining/stable), and a doctor Rx assistant that suggests co-prescriptions and flags drug-drug interactions.`,
+        `Converts uploaded PDF lab reports to spoken audio using LLM-based clinical analysis + Sarvam AI TTS, with multi-chunk WAV stitching for seamless playback in English and Hinglish.`,
+        `Patients grant document-level access to specific doctors for configurable durations; grants auto-propagate through the referral system.`,
+        `Medicine full-text search using a GIN tsvector index with ranked results via a custom SQL RPC`,
+        `Auto slot generation via cron jobs seeding appointment slots on a rolling 31-day window for all active doctors.`
+      ]
+    },
+    {
+      id: 2,
       title: 'Multi-Class Abnormality Classification',
       description: 'Developed Vision Transformer and ResNet based deep learning model for multi-class classification of endoscopy images, focusing on automated gastrointestinal abnormality detection. <b>Ranked 7th in Capsule Vision 2024 Challenge.</b>',
       image: cvip,
@@ -29,7 +48,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: 'DTIX',
       description: 'Blockchain-based NFT ticketing platform preventing scalping and transparent auctions.',
       image: dihImage,
@@ -44,7 +63,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: 'Blog-Verse',
       description: 'BlogVerse is a personal blogging platform for sharing ideas, experiences, and technical insights.It is built with a modern tech stack and optimized for speed and usability.The platform focuses on simplicity, performance, and good user experience.',
       year: "2026",
@@ -60,7 +79,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: 'STONKS',
       description: 'The Virtual Stock Trading Flutter App is a simulation-based platform that allows users to practice stock trading using virtual money. Users can buy and sell stocks, track real-time price movements, and manage their portfolio. The goal is to help users learn trading concepts and strategies without any financial risk.',
       image: stonks,
@@ -75,7 +94,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: 'Canary Deployment Without Using Service Mesh',
       description: 'Implemented a Canary Deployment strategy in Kubernetes without using a service mesh by running stable and canary application versions simultaneously.Traffic is distributed based on pod replica ratios using a single Kubernetes Service.Demonstrates practical understanding of Docker, Kubernetes deployments, and zero-downtime release strategies.',
       image: canary,
@@ -91,7 +110,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 6,
+      id: 7,
       title: 'ACCIDENT_DETECTION',
       description: 'Real-time YOLO detection system taking immediate action on accident identification.',
       image: accident,
