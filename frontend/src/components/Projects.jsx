@@ -8,6 +8,7 @@ import blogVerse from '../assets/blog-verse.png'
 import stonks from '../assets/stonks.png'
 import canary from '../assets/canary.png'
 import medianexus from '../assets/medianexus.png'
+import repocraft from '../assets/repocraft.png'
 import { FaEthereum } from 'react-icons/fa';
 
 const Projects = () => {
@@ -76,6 +77,23 @@ const Projects = () => {
         'Upload Images and Videos using ImageKit',
         'JWT based authentication and authorization',
         'Lazy Loading of Images and Videos'
+      ]
+    },{
+      id: 5,
+      title: 'RepoCraft',
+      description: 'Repocraft is a full-stack web application that lets developers analyze and visualize any GitHub repository\'s architecture. Users authenticate via GitHub OAuth, select a repository, and the app runs a static analysis pipeline — detecting the tech stack, mapping internal dependencies, identifying API routes and service boundaries — then presents the results as an interactive node-graph and a step-by-step narrative walkthrough of the codebase.',
+      year: "2026",
+      image: repocraft,
+      tags: [` Next.js 19`, `TypeScript`, ' React Flow', 'Framer Motion', 'OpenRouter API', 'Zustand', ' Bun', 'Express', 'PostgreSQL', 'Zod'],
+      github: 'https://github.com/dhruv14122004/repocraft',
+      demo: 'https://repocraft.vercel.app/',
+      features: [
+        'Secure login with GitHub, cookie-based sessions persisted in PostgreSQL (7-day expiry)',
+        'Browse all your GitHub repos with search/filter, plus a history of past analyses',
+        'Detects language, framework, build system, entry points, API routes, service boundaries, and internal dependencies — no AI, fully deterministic',
+        'Step-by-step guided tour of the codebase (Overview → Architecture → Entry Points → API Routes → Dependencies → Summary), synchronized with the graph',
+        'Results cached for 24 hours per user/repo/branch; force-refresh option available',
+        'Rate limiting, Helmet security headers, structured logging, graceful shutdown, and a health check endpoint with DB connectivity probe'
       ]
     },
     {
