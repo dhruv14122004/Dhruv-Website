@@ -47,6 +47,35 @@ export const projects = [
       'Auto slot generation via cron jobs seeding appointment slots on a rolling 31-day window for all active doctors.',
     ],
   },
+    {
+    id: 'NO Cap',
+    title: 'Multi-Player Russian Roulette Game',
+    description: 'Built a 2–4 player real-time browser-based card bluffing and Russian Roulette game using Python (FastAPI) and TypeScript (Next.js 16), featuring WebSocket-driven lobby management, zero-leak state redaction, turn validation, and revolver chamber mechanics.',
+    achievement: 'Full-stack real-time multiplayer game featuring zero-leak server state redaction, custom WebSocket event router, and interactive revolver trigger mechanics.',
+    imageAlt: 'NoCap real-time multiplayer card bluffing and Russian Roulette game interface with card play area and revolver animations',
+    tags: [
+      'FastAPI',
+      'Python',
+      'Next.js',
+      'TypeScript',
+      'WebSockets',
+      'Tailwind CSS',
+      'Zustand',
+      'Framer Motion',
+      'PostgreSQL',
+      'Redis'
+    ],
+    github: 'https://github.com/n1dhruv/NoCap',
+    year: '2026',
+    demo: 'https://github.com/n1dhruv/NoCap',
+    features: [
+      'Engineered a 2–4 player real-time multiplayer card game combining Liar\'s Poker bluffing logic with high-stakes Russian Roulette revolver elimination mechanics.',
+      'Architected a FastAPI & Python 3.12 WebSocket backend with strict per-player state redaction (redact_state), ensuring hidden opponent hands and draw deck contents are never exposed over network payloads.',
+      'Designed an interactive Next.js 16 App Router UI featuring Framer Motion card interactions, Liar call reveal overlays, round initiation ceremonies, and visual revolver gun animations.',
+      'Implemented full real-time lobby management using Zustand state synchronization, AsyncPG PostgreSQL and Redis infrastructure placeholders, and Render production deployment configurations.',
+    ],
+  },
+
   {
     id: 'capsule-vision',
     title: 'Multi-Class Abnormality Classification',
