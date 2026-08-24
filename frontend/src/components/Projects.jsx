@@ -13,7 +13,7 @@ const allTags = ['All', ...Array.from(new Set(projects.flatMap((p) => p.tags.map
   .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
 ];
 
-const Projects = ({ limit = null, showViewAll = false }) => {
+const Projects = ({ limit = null, showViewAll = false, showSearch = true, showFilters = true }) => {
   const [query, setQuery]     = useState('');
   const [activeTag, setTag]   = useState('All');
   const [selectedProjectId, setSelectedProjectId] = useState(null);
@@ -67,32 +67,38 @@ const Projects = ({ limit = null, showViewAll = false }) => {
       </motion.div>
 
       {/* Search + filter bar */}
-      <div className="flex flex-col gap-3 mb-6">
-        <div className="relative">
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="// search projects..."
-            aria-label="Search projects"
-            className="search-input pl-9"
-          />
-        </div>
+      {(showSearch || showFilters) && (
+        <div className="flex flex-col gap-3 mb-6">
+          {showSearch && (
+            <div className="relative">
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="// search projects..."
+                aria-label="Search projects"
+                className="search-input pl-9"
+              />
+            </div>
+          )}
 
-        {/* Tag filter pills */}
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by technology">
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setTag(tag)}
-              className={`tag-pill ${activeTag === tag ? 'tag-pill-active' : ''}`}
-              aria-pressed={activeTag === tag}
-            >
-              {tag}
-            </button>
-          ))}
+          {/* Tag filter pills */}
+          {showFilters && (
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by technology">
+              {allTags.map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => setTag(tag)}
+                  className={`tag-pill ${activeTag === tag ? 'tag-pill-active' : ''}`}
+                  aria-pressed={activeTag === tag}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-      </div>
+      )}
 
       {/* Project cards grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
