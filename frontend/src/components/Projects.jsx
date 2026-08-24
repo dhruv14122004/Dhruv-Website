@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiSearch, FiX } from 'react-icons/fi';
 import { projects } from '../data/projects';
@@ -12,7 +13,7 @@ const allTags = ['All', ...Array.from(new Set(projects.flatMap((p) => p.tags.map
   .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
 ];
 
-const Projects = () => {
+const Projects = ({ limit = null, showViewAll = false }) => {
   const [query, setQuery]     = useState('');
   const [activeTag, setTag]   = useState('All');
   const [selectedProjectId, setSelectedProjectId] = useState(null);
@@ -30,6 +31,10 @@ const Projects = () => {
       return matchTag && matchQ;
     });
   }, [query, activeTag]);
+
+  const displayedProjects = useMemo(() => {
+    return limit ? filtered.slice(0, limit) : filtered;
+  }, [filtered, limit]);
 
   const selectedProject = useMemo(() => 
     projects.find(p => p.id === selectedProjectId), 
@@ -92,7 +97,7 @@ const Projects = () => {
       {/* Project cards grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <AnimatePresence mode="popLayout">
-          {filtered.length === 0 && (
+          {displayedProjects.length === 0 && (
             <motion.p
               key="empty"
               initial={{ opacity: 0 }}
@@ -104,11 +109,11 @@ const Projects = () => {
             </motion.p>
           )}
 
-          {filtered.map((project, index) => {
+          {displayedProjects.map((project, index) => {
             const hasDemo = project.demo && project.demo !== '#' && project.demo !== '';
             
-            // If total filtered projects is odd, make the last one span both columns
-            const isLastOdd = (filtered.length % 2 !== 0) && (index === filtered.length - 1);
+            // If total displayed projects is odd, make the last one span both columns
+            const isLastOdd = (displayedProjects.length % 2 !== 0) && (index === displayedProjects.length - 1);
 
             return (
               <motion.article
@@ -192,6 +197,19 @@ const Projects = () => {
           })}
         </AnimatePresence>
       </div>
+
+      {/* View All Projects button */}
+      {showViewAll && (
+        <div className="flex justify-center mt-8">
+          <Link
+            href="/projects"
+            className="btn-primary inline-flex items-center gap-2 group font-mono text-xs uppercase tracking-wider px-6 py-3"
+          >
+            <span>View All Projects</span>
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </div>
+      )}
 
       {/* Modal Popup */}
       <AnimatePresence>

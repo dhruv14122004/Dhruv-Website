@@ -18,7 +18,7 @@ export default function Home() {
         <div className="site-container flex flex-col gap-8 md:gap-12">
           <Hero />
           <TreeTimeline />
-          <Projects />
+          <Projects limit={4} showViewAll={true} />
           <GithubActivity />
           <Skills />
         </div>

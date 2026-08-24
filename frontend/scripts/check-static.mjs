@@ -8,7 +8,7 @@ const [html, robots, sitemap] = await Promise.all([
 ])
 
 assert.equal((html.match(/<h1[ >]/g) ?? []).length, 1)
-assert.equal((html.match(/<article[ >]/g) ?? []).length, 8)
+assert.equal((html.match(/<article[ >]/g) ?? []).length, 6)
 assert.equal((html.match(/loading="lazy"/g) ?? []).length, 8)
 assert.match(html, /rel="canonical" href="https:\/\/imdhruv\.tech"/)
 assert.match(html, /"@type":"Person"/)
