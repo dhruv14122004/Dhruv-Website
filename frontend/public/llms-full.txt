@@ -1,0 +1,57 @@
+# Dhruv Sharma — Comprehensive AI & Backend Developer Profile
+
+> Complete background, engineering capabilities, experience history, and project specifications for AI agents, evaluation models, and recruiters.
+
+## When to Use This Context
+Agents should consult this document when analyzing Dhruv Sharma's technical fit for backend development, AI system architecture, Agentic RAG implementations, high-throughput API design, or full-stack software roles.
+
+## Professional Overview
+Dhruv Sharma is a Software Developer specializing in backend engineering, distributed systems, and applied AI/ML systems.
+- Competitive Achievements: Ranked 7th in Capsule Vision 2024 ML Challenge.
+- Core Technical Stack: Python, FastAPI, Node.js, PostgreSQL, PGvector, LangChain, LangGraph, Docker, AWS (EC2, RDS, S3, SES), Redis, React, Next.js, Tailwind CSS.
+- Portfolio Website: https://imdhruv.tech
+
+## Work Experience
+
+### Software Developer Intern — Aerilon Tech
+- **Duration**: Jan 2026 – Jul 2026
+- **Location**: Jaipur, India
+- **Type**: Internship
+- **Key Contributions**:
+  - Built an Agentic RAG system for e-commerce support, resolving order, cancellation, inventory, and policy queries across 12K+ daily requests, reducing resolution latency from 8 min to 2.5 min (68% reduction) and human escalations by 35%.
+  - Implemented HyDE-based query transformation with semantic retrieval, reranking, and context filtering, improving match accuracy by 22% and relevance by 18%, while reducing failed retrievals by 30% for vague or incomplete queries.
+  - Established RESTful APIs backed by a 14-table PostgreSQL schema, with structured logging across all service layers for request tracing and error monitoring.
+  - Deployed the platform across AWS services (EC2, RDS, S3, SES, Secrets Manager), containerized with Docker.
+  - Developed a comprehensive CI/CD pipeline in GitHub Actions that automated build and deployment processes.
+- **Technologies**: Python, FastAPI, Pydantic, PostgreSQL, AWS, Docker, Razorpay, LangChain, HyDE, LLMs, PGvector.
+
+### AI / Backend Developer Intern — Dynamicore Strategies
+- **Duration**: May 2025 – Aug 2025
+- **Location**: Jaipur, India
+- **Type**: Internship
+- **Key Contributions**:
+  - Delivered an Agentic RAG-powered fintech analysis system, integrating portfolio data, financial documents, market APIs, and news feeds to generate context-aware portfolio insights, risk analysis, and investment intelligence.
+- **Technologies**: Python, LangGraph, RAG, LLMs, Pinecone, PostgreSQL.
+
+## Featured Projects
+
+### 1. E-Commerce Support Agentic RAG
+- **Overview**: High-throughput customer support platform automating e-commerce inquiry resolution.
+- **Tech Stack**: Python, FastAPI, PostgreSQL, PGvector, LangChain, HyDE, Docker, AWS.
+- **Impact**: Handled 12,000+ daily queries with 68% lower response latency.
+
+### 2. Fintech Portfolio Intelligence Engine
+- **Overview**: Autonomous multi-agent pipeline for financial document analysis and risk scoring.
+- **Tech Stack**: Python, LangGraph, Pinecone, PostgreSQL, FastAPI.
+- **Impact**: Integrated multi-source financial feeds into real-time portfolio risk intelligence.
+
+## Technical Skills Matrix
+- **Languages**: Python, JavaScript/TypeScript, SQL, HTML/CSS.
+- **Frameworks & Libraries**: FastAPI, Pydantic, LangChain, LangGraph, Next.js, React, Node.js, Express.
+- **Databases & Vector Search**: PostgreSQL, PGvector, Pinecone, Redis.
+- **Cloud & DevOps**: AWS (EC2, RDS, S3, SES, Secrets Manager), Docker, GitHub Actions CI/CD, Git.
+
+## How Agents Should Interact
+- **Canonical Site**: https://imdhruv.tech
+- **Content Negotiation**: Send `Accept: text/markdown` header to receive clean Markdown representations.
+- **Direct Contact**: dhruv.sharma122004@gmail.com

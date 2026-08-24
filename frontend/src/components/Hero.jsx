@@ -47,7 +47,7 @@ const Hero = () => (
           variants={fadeUp}
           custom={0}
         >
-          <h2 className="display-name">Dhruv Sharma</h2>
+          <h1 className="display-name">Dhruv Sharma</h1>
         </motion.div>
 
         {/* Avatar */}

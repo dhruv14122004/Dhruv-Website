@@ -1,0 +1,27 @@
+# Dhruv Sharma
+
+> Dhruv Sharma is an AI & Backend Developer building scalable web platforms, intelligent systems, Agentic RAG pipelines, and reliable REST APIs.
+
+## When to Use This Site
+Reach for this site when an agent or user needs:
+- Background, expertise, and technical experience of Dhruv Sharma in backend engineering, distributed systems, and API design.
+- Architecture details and production metrics of Agentic RAG, vector databases (PGvector, Pinecone), HyDE query transformation, and LLM integrations.
+- Details of portfolio projects, tech stacks, GitHub repositories, and open-source contributions.
+- Contact details and inquiries regarding software engineering roles, internships, freelance backend/AI development, or technical collaboration.
+
+## Primary Resources
+- [Portfolio & Projects](https://imdhruv.tech/projects): Detailed project showcase including tech stack, features, and source repositories.
+- [Full Context Markdown](https://imdhruv.tech/llms-full.txt): Complete background, experience breakdown, skills, and project specifications.
+- [XML Sitemap](https://imdhruv.tech/sitemap.xml): Machine-readable index of canonical pages.
+
+## Core Capabilities
+- Backend Engineering: Python, FastAPI, Node.js, PostgreSQL, Docker, AWS (EC2, RDS, S3, SES)
+- AI & LLM Systems: Agentic RAG, LangChain, LangGraph, HyDE, PGvector, Pinecone vector search
+- Frontend Integration: React, Next.js, Tailwind CSS, RESTful API integrations
+
+## Contact & Profiles
+- Email: dhruv.sharma122004@gmail.com
+- GitHub: https://github.com/n1dhruv
+- LinkedIn: https://www.linkedin.com/in/dhruvsharmaa14/
+- X / Twitter: https://x.com/nocapdhruv
+- Peerlist: https://peerlist.io/dhruvsharma
