@@ -71,6 +71,13 @@
   }
 }
 
+/* ─── Custom Cursor Default Cursor Hide ────────────────────────────── */
+@media (pointer: fine) {
+  html, body, a, button, input, textarea, select, [role="button"], .cursor-pointer, svg {
+    cursor: none !important;
+  }
+}
+
 /* ─── Layout ─────────────────────────────────────────────────────── */
 .site-container {
   width: 100%;

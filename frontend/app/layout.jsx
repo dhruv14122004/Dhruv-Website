@@ -1,5 +1,6 @@
 import favicon from '../src/assets/favicon.webp'
 import JsonLd from '../src/components/JsonLd'
+import CustomCursor from '../src/components/CustomCursor'
 import { projects } from '../src/data/projects'
 import { person, SITE_URL } from '../src/data/site'
 import '../src/index.css'
@@ -65,6 +66,7 @@ export default function RootLayout({ children }) {
         <JsonLd data={structuredData} />
       </head>
       <body>
+        <CustomCursor />
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[-1] pointer-events-none"></div>
         {children}
       </body>
