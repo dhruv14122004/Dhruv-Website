@@ -5,6 +5,7 @@ import TreeTimeline from '../src/components/TreeTimeline'
 import GithubActivity from '../src/components/GithubActivity'
 import TableOfContents from '../src/components/TableOfContents'
 import Skills from '../src/components/Skills'
+import Setup from '../src/components/Setup'
 import Quote from '../src/components/Quote'
 
 export const dynamic = 'force-static'
@@ -21,6 +22,7 @@ export default function Home() {
           <Projects limit={4} showViewAll={true} showSearch={false} showFilters={false} />
           <GithubActivity />
           <Skills />
+          <Setup />
         </div>
         
         {/* Quote section sits outside the tightly packed container to have its own massive spacing */}

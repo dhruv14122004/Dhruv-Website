@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server.js'
 
 const KNOWN_PATHS = new Set([
   '/',
@@ -54,7 +54,8 @@ export function middleware(request) {
   // 2. Accept: text/markdown Content Negotiation for existing pages
   if (isMarkdownRequest) {
     const targetFile = pathname.includes('projects') ? '/llms-full.txt' : '/llms.txt'
-    const response = NextResponse.rewrite(new URL(targetFile, request.url))
+    const baseUrl = request.url || request.nextUrl?.href || 'https://imdhruv.tech/'
+    const response = NextResponse.rewrite(new URL(targetFile, baseUrl))
     response.headers.set('Content-Type', 'text/markdown; charset=utf-8')
     response.headers.set('Vary', 'Accept, Accept-Encoding')
     return response

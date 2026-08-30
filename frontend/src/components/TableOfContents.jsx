@@ -8,6 +8,7 @@ const sections = [
   { id: 'projects', label: 'Projects' },
   { id: 'github-activity', label: 'Activity' },
   { id: 'skills', label: 'Skills' },
+  { id: 'setup', label: 'Setup' },
 ];
 
 const TableOfContents = () => {
