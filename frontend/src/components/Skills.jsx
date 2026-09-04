@@ -38,7 +38,7 @@ const Skills = () => {
         transition={{ duration: 0.45 }}
         className="flex items-center gap-3 mb-5"
       >
-        <span className="section-label">05 /</span>
+        <span className="section-label">06 /</span>
         <h2 className="section-title">Skills</h2>
       </motion.div>
 

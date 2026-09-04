@@ -15,7 +15,7 @@ export default function KeyboardNavigation() {
     const handleKeyDown = (event) => {
       if (['INPUT', 'TEXTAREA'].includes(event.target.tagName)) return
 
-      const section = { p: 'projects', h: 'hero', e: 'experience' }[event.key.toLowerCase()]
+      const section = { p: 'projects', h: 'hero', e: 'experience', o: 'open-source' }[event.key.toLowerCase()]
 
       if (!event.ctrlKey && !event.altKey && !event.metaKey && !event.shiftKey) {
         if (event.key.toLowerCase() === 'r') window.open(links.r, '_blank', 'noopener,noreferrer')

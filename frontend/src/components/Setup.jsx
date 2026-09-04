@@ -22,7 +22,7 @@ const Setup = () => {
         transition={{ duration: 0.45 }}
         className="flex items-center gap-3 mb-5"
       >
-        <span className="section-label">06 /</span>
+        <span className="section-label">07 /</span>
         <h2 className="section-title">Setup</h2>
       </motion.div>
 

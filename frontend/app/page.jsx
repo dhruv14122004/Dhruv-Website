@@ -2,6 +2,7 @@ import Hero from '../src/components/Hero'
 import KeyboardNavigation from '../src/components/KeyboardNavigation'
 import Projects from '../src/components/Projects'
 import TreeTimeline from '../src/components/TreeTimeline'
+import OpenSource from '../src/components/OpenSource'
 import GithubActivity from '../src/components/GithubActivity'
 import TableOfContents from '../src/components/TableOfContents'
 import Skills from '../src/components/Skills'
@@ -20,6 +21,7 @@ export default function Home() {
           <Hero />
           <TreeTimeline />
           <Projects limit={4} showViewAll={true} showSearch={false} showFilters={false} />
+          <OpenSource />
           <GithubActivity />
           <Skills />
           <Setup />

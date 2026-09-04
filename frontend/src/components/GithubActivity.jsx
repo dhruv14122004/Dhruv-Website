@@ -55,7 +55,7 @@ const GithubActivity = () => {
         transition={{ duration: 0.45 }}
         className="flex items-center gap-3 mb-5"
       >
-        <span className="section-label">04 /</span>
+        <span className="section-label">05 /</span>
         <h2 className="section-title">GitHub Activity</h2>
       </motion.div>
 
